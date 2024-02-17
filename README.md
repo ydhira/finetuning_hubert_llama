@@ -14,5 +14,5 @@ This repository provides instructions and scripts for finetuning LLama on HuBERT
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/finetuning-llama-hubert.git
+   git clone git@github.com:ydhira/finetuning_hubert_llama.git
    cd finetuning-llama-hubert
