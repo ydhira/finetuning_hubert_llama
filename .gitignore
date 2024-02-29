@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local configuration file
+*.ini
+
+# IDE files
+.vscode/
+.idea/
+
+# Environment-specific files
+.env
+
+# Compiled Python files
+*.pyc
+*.pyo
+*.pyd
+
+# Dependency folders
+venv/
+env/
+
+kmeans
+hubert_features
+librispeech-hubert-discrete-tokens
+outputs

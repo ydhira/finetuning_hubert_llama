@@ -1,0 +1,12 @@
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/table.py:1421: FutureWarning: promote has been superseded by mode='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+Elapsed time: 0.9373548030853271 seconds
+--Return--
+> /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/train2.py(45)<module>()->None
+-> import pdb;pdb.set_trace()
+
+
+
+#w
+Elapsed time: 1.0029857158660889 seconds
+
