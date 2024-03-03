@@ -24,6 +24,11 @@ from transformers import Trainer, Seq2SeqTrainer, DataCollatorForSeq2Seq
 from datasets import load_dataset
 from transformers.trainer_utils import get_last_checkpoint, is_main_process
 import jiwer
+import torch.nn.functional as F
+
+
+from functools import partial
+
 
 import os
 import datasets
@@ -31,6 +36,8 @@ import os
 # os.environ['TRANSFORMERS_CACHE'] = './cache'
 
 os.environ["WANDB_DISABLED"] = "true"
+
+logger = logging.getLogger(__name__)
 
 IGNORE_INDEX = -100
 DEFAULT_PAD_TOKEN = "[PAD]"
@@ -93,7 +100,13 @@ class DataArguments:
         default=None,
     )
     max_eval_samples:Optional[int]=field(
-        default=None,
+        default=1000,
+    )
+    max_test_samples:Optional[int]=field(
+        default=1000
+    )
+    max_seq_length:Optional[int]=field(
+        default=1024,
     )
     
     debugging: Optional[bool] = field(default=False, metadata={"help": "debugging mode."})
@@ -107,81 +120,12 @@ class TrainingArguments(transformers.Seq2SeqTrainingArguments):
         metadata={"help": "Maximum sequence length. Sequences will be right padded (and possibly truncated)."},
     )
     
+    preprocessing_num_workers: Optional[int] = field(
+        default=4,
+        metadata={"help":"Number of workers for preprocessing"}
+    )
     
-    
-def preprocess(
-    sources: Sequence[str],
-    targets: Sequence[str],
-    tokenizer: transformers.PreTrainedTokenizer,
-) -> Dict:
-    
-    """Source is hubert discrete tokens. So first we will convert that into string."""
-    sources = [str(each) for each in sources]
-    sources = " ".join(sources)
-    
-    sources_tokenized = tokenizer(sources, return_tensors="pt", padding="longest", max_length=tokenizer.model_max_length, truncation=True)
-    targets_tokenized = tokenizer(targets, return_tensors="pt", padding="longest", max_length=tokenizer.model_max_length, truncation=True)
-
-    return dict(input_ids=sources_tokenized['input_ids'], labels=targets_tokenized['input_ids'])
-
-class SupervisedDataset(Dataset):
-    """Dataset for supervised fine-tuning."""
-
-    def __init__(self, data_args, split_name:str, tokenizer: transformers.PreTrainedTokenizer):
-        super(SupervisedDataset, self).__init__()
-
-        # Load the dataset
-        logging.warning("Loading data...")
-        if data_args.load_from_local:
-            dataset = datasets.load_from_disk(data_args.dataset_name_or_path)[split_name]
-        else:
-            dataset = datasets.load_dataset(data_args.dataset_name_or_path, split=split_name)
-            
-        if split_name=="train":
-            dataset = dataset.select(range(1000))
-
-        sources = dataset[data_args.input_col_name]
-        targets = dataset[data_args.output_col_name]
-
-        logging.warning(f"Tokenizing {split_name}... This may take some time...")
-        data_dict = preprocess(sources, targets, tokenizer)
-
-        self.input_ids = data_dict["input_ids"]
-        self.labels = data_dict["labels"]
-
-    def __len__(self):
-        return len(self.input_ids)
-
-    def __getitem__(self, i) -> Dict[str, torch.Tensor]:
-        return dict(input_ids=self.input_ids[i], labels=self.labels[i])
-    
-@dataclass
-class DataCollatorForSupervisedDataset(object):
-    """Collate examples for supervised fine-tuning."""
-
-    tokenizer: transformers.PreTrainedTokenizer
-
-    def __call__(self, instances: Sequence[Dict]) -> Dict[str, torch.Tensor]:
-        input_ids, labels = tuple([instance[key] for instance in instances] for key in ("input_ids", "labels"))
-        input_ids = torch.nn.utils.rnn.pad_sequence(
-            input_ids, batch_first=True, padding_value=self.tokenizer.pad_token_id
-        )
-        labels = torch.nn.utils.rnn.pad_sequence(labels, batch_first=True, padding_value=IGNORE_INDEX)
-        return dict(
-            input_ids=input_ids,
-            labels=labels,
-            attention_mask=input_ids.ne(self.tokenizer.pad_token_id),
-        )
-
-
-
-def make_supervised_data_module(tokenizer: transformers.PreTrainedTokenizer, data_args) -> Dict:
-    """Make dataset and collator for supervised fine-tuning."""
-    train_dataset = SupervisedDataset(data_args=data_args, split_name=data_args.train_split_name, tokenizer=tokenizer)
-    test_dataset = SupervisedDataset(data_args=data_args, split_name=data_args.test_split_name, tokenizer=tokenizer)
-    # validation_dataset = SupervisedDataset(data_args=data_args, split_name=data_args.validation_split_name, tokenizer=tokenizer)
-    data_collator = DataCollatorForSupervisedDataset(tokenizer=tokenizer)
-    return dict(train_dataset=train_dataset, eval_dataset=test_dataset, data_collator=data_collator)
+ 
 
 def safe_save_model_for_hf_trainer(trainer: transformers.Trainer, output_dir: str):
     """Collects the state dict and dump to disk."""
@@ -190,6 +134,36 @@ def safe_save_model_for_hf_trainer(trainer: transformers.Trainer, output_dir: st
         cpu_state_dict = {key: value.cpu() for key, value in state_dict.items()}
         del state_dict
         trainer._save(output_dir, state_dict=cpu_state_dict)  # noqa
+
+
+# tokenized data
+def preprocess(example, tokenizer, data_args):
+    
+    # concate source and target or input and output
+    example_text = example[data_args.input_col_name] + tokenizer.eos_token + example[data_args.output_col_name]
+    
+    # tokenize them together
+    tokenized_example = tokenizer(example_text, return_tensors='pt', max_length=data_args.max_seq_length, truncation=True)
+    
+    input_ids = tokenized_example.input_ids
+    
+    labels = input_ids.clone()
+    
+    # tokenize source seprately 
+    source_tokenized = tokenizer(example[data_args.input_col_name], return_tensors="pt")
+    
+    # mask the input [discrete tokens] part for avoiding loss
+    
+    labels[:, :source_tokenized.input_ids.shape[1]] = -100
+    
+    # attending 
+    attention_mask = torch.ones_like(input_ids)
+    # import pdb;pdb.set_trace()
+    return {
+        "input_ids":input_ids.flatten(),
+        "attention_mask":attention_mask.flatten(),
+        "labels":labels.flatten()
+    }
         
 def train():
     
@@ -210,35 +184,62 @@ def train():
         use_fast=False,
     )
     
-    if "llama" in model_args.model_name_or_path:
-        tokenizer.add_special_tokens(
-            {
-                "eos_token": DEFAULT_EOS_TOKEN,
-                "bos_token": DEFAULT_BOS_TOKEN,
-                "unk_token": DEFAULT_UNK_TOKEN,
-            }
-        )
+    # if "llama" in model_args.model_name_or_path:
+    tokenizer.add_special_tokens(
+        {
+            "eos_token": DEFAULT_EOS_TOKEN,
+            "bos_token": DEFAULT_BOS_TOKEN,
+            "unk_token": DEFAULT_UNK_TOKEN,
+        }
+    )
     # 1. Add pad tokens and extra tokens for new ids
     tokenizer.pad_token = tokenizer.eos_token
 
+    # add new tokens to accomoate hubert discrete tokens
     new_tokens = [str(token) for token in range(model_args.new_tokens_count)]
-
+    tokenizer.add_tokens(new_tokens)
     model.resize_token_embeddings(len(tokenizer))
-
-    data_module = make_supervised_data_module(tokenizer=tokenizer, data_args=data_args)
     
-    train_dataloader = DataLoader(
-        data_module['train_dataset'], 
-        shuffle=True, 
-        collate_fn=DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model, padding="longest"),
-        batch_size=training_args.per_device_train_batch_size,
+    logging.warning("Loading data...")
+    if data_args.load_from_local:
+        raw_datasets = datasets.load_from_disk(data_args.dataset_name_or_path)
+    else:
+        raw_datasets = datasets.load_dataset(data_args.dataset_name_or_path)
+        
+    # for debugging
+    if data_args.max_train_samples:
+        raw_datasets[data_args.train_split_name] = raw_datasets[data_args.train_split_name].select(range(data_args.max_train_samples))
+    if data_args.max_eval_samples:
+        raw_datasets[data_args.validation_split_name] = raw_datasets[data_args.validation_split_name].select(range(data_args.max_eval_samples))
+    if data_args.max_test_samples:
+        raw_datasets[data_args.test_split_name] = raw_datasets[data_args.test_split_name].select(range(data_args.max_test_samples))
+    
+    # let's do some preprocessing 
+    # lower case all text, convert list of discrete tokens into string
+    def format_(example):
+        example[data_args.input_col_name] = ' '.join(map(str, example[data_args.input_col_name]))
+        example[data_args.output_col_name] = example[data_args.output_col_name].lower()
+        return example
+    raw_datasets = raw_datasets.map(format_)
+       
+    
+    # convert hubert discrete tokens
+    encode_function = partial(
+        preprocess,
+        tokenizer=tokenizer,
+        data_args=data_args
     )
-    eval_dataloader = DataLoader(
-        data_module['eval_dataset'], 
-        shuffle=True, 
-        collate_fn=DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model, padding="longest"),
-        batch_size=training_args.per_device_eval_batch_size,
-    )
+    vectorized_datasets = raw_datasets.map(
+            encode_function,
+            batched=False,
+            num_proc=training_args.preprocessing_num_workers,
+            remove_columns=[name for name in raw_datasets["train"].column_names if name not in ["input_ids", "labels", "attention_mask"]],
+            desc="Tokenizing and reformatting data",
+        )
+    
+    # so apprently .map changes tensors into list but we need tensors for training
+    vectorized_datasets.set_format("pt", columns=["input_ids", "attention_mask", "labels"], output_all_columns=True)
+
     
     # update training args to make output dir
     output_dir = os.path.join(training_args.output_dir, model_args.model_name_or_path.split("/")[-1])
@@ -247,36 +248,62 @@ def train():
     training_args.output_dir = output_dir
     
     def compute_metrics(pred):
-        pred_ids = pred.predictions
-        label_ids = pred.label_ids
-
+        # import pdb;pdb.set_trace()
+        pred_logits = torch.from_numpy(pred.predictions)
+        label_ids = torch.from_numpy(pred.label_ids)
+        
         # replace -100 with the pad_token_id
         label_ids[label_ids == -100] = tokenizer.pad_token_id
 
-        # we do not want to group tokens when computing the metrics
-        pred_str = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
-        label_str = tokenizer.batch_decode(label_ids, skip_special_tokens=True)
+        # Apply softmax to get probabilities
+        pred_probs = F.softmax(pred_logits, dim=-1)
 
-        wer = 100 * jiwer.wer(label_str, pred_str)# wer_metric.compute(predictions=pred_str, references=label_str)
-        cer = 100 * jiwer.cer(label_str, pred_str) #cer_metric.compute(predictions=pred_str, references=label_str)
+        # Take the argmax to get the predicted token IDs
+        pred_ids = torch.argmax(pred_probs, dim=-1)
+
+        # Decode the token IDs to strings
+        pred_str = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)#.lower()
+        label_str = tokenizer.batch_decode(label_ids, skip_special_tokens=True)#.lower()
         
+        # drop empty refs/preds
+        filtered_pred_str, filtered_label_str = map(list, zip(*[(pred, label) for pred, label in zip(pred_str, label_str) if pred != "" and label != ""]))
 
-        return {"wer": wer, "cer": cer}
-    
-    # import pdb;pdb.set_trace()
-    
 
-    trainer = Seq2SeqTrainer(
+        wer = 100 * jiwer.wer(filtered_label_str, filtered_pred_str)
+        cer = 100 * jiwer.cer(filtered_label_str, filtered_pred_str)
+
+        return {"wer": f'{wer:.2f}', "cer": f'{cer:.2f}'}
+
+
+
+    trainer = Trainer(
         model=model, 
         tokenizer=tokenizer, 
         args=training_args,
         compute_metrics=compute_metrics,
-        train_dataset=train_dataloader, 
-        eval_dataset=eval_dataloader
+        train_dataset=vectorized_datasets[data_args.train_split_name],
+        eval_dataset=vectorized_datasets[data_args.validation_split_name],
+        data_collator=DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model)
     )
     
+    # import pdb;pdb.set_trace()
     # resume from last checkpoint if it exists     
     checkpoint = get_last_checkpoint(training_args.output_dir)
+    
+    # import pdb;pdb.set_trace()
+    
+    train_batch_size = training_args.per_device_train_batch_size * training_args._n_gpu
+    steps_per_epoch = len(vectorized_datasets["train"]) // (train_batch_size * training_args.gradient_accumulation_steps)
+    total_train_steps = steps_per_epoch * training_args.num_train_epochs
+
+    logger.info("***** Running training *****")
+    logger.info(f"  Num examples = {total_train_steps * train_batch_size * training_args.gradient_accumulation_steps}")
+    logger.info("  Instantaneous batch size per device =" f" {training_args.per_device_train_batch_size}")
+    logger.info("  Gradient accumulation steps =" f" {training_args.gradient_accumulation_steps}")
+    logger.info(
+        f"  Total train batch size (w. parallel & distributed) = {train_batch_size * training_args.gradient_accumulation_steps}"
+    )
+    logger.info(f"  Total optimization steps = {total_train_steps}")
 
     if checkpoint:
         print(f"Checkpoint found! Training from {checkpoint} checkpoint!")
@@ -285,7 +312,8 @@ def train():
         print(f"No checkpoint found! Training from scratch!")
         trainer.train()
         
-    results = trainer.evaluate()
+    results = trainer.evaluate(vectorized_datasets[data_args.test_split_name])
+    # results = trainer.predict(vectorized_datasets[data_args.test_split_name])
     print(results)
     
     # trainer.train()

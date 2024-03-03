@@ -10,3 +10,24 @@ Elapsed time: 0.9373548030853271 seconds
 #w
 Elapsed time: 1.0029857158660889 seconds
 
+
+
+  --learning_rate 2e-5 \
+    --lr_scheduler_type linear \
+    --warmup_ratio 0.03 \
+    --weight_decay 0. \
+    --evaluation_strategy "no" \
+    --logging_steps 1 \
+    --save_strategy epoch \
+    --save_total_limit 1 \
+    --num_train_epochs 3 \
+    --output_dir output/oasst1_7b_lora/ \
+    --fp16 \
+    --overwrite_output_dir \
+    --report_to "none" \
+
+
+
+
+# BATCH SIZE for A100 (40G) - 4
+# 
