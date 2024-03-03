@@ -305,12 +305,12 @@ def train():
     )
     logger.info(f"  Total optimization steps = {total_train_steps}")
 
-    if checkpoint:
-        print(f"Checkpoint found! Training from {checkpoint} checkpoint!")
-        trainer.train(resume_from_checkpoint=checkpoint)
-    else:
-        print(f"No checkpoint found! Training from scratch!")
-        trainer.train()
+    # if checkpoint:
+    #     print(f"Checkpoint found! Training from {checkpoint} checkpoint!")
+    #     trainer.train(resume_from_checkpoint=checkpoint)
+    # else:
+    #     print(f"No checkpoint found! Training from scratch!")
+    #     trainer.train()
         
     results = trainer.evaluate(vectorized_datasets[data_args.test_split_name])
     # results = trainer.predict(vectorized_datasets[data_args.test_split_name])

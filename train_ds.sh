@@ -11,15 +11,16 @@ deepspeed --num_gpus=8 train.py \
     --test_split_name "test" \
     --validation_split_name "validation" \
     --per_device_train_batch_size 16 \
-    --per_device_eval_batch_size  4 \
     --gradient_accumulation_steps 4 \
     --gradient_checkpointing \
-    --save_strategy epoch \
-    --save_steps 1 \
+    --per_device_eval_batch_size  4 \
+    --eval_accumulation_steps 4 \
+    --save_strategy steps \
+    --save_steps 100 \
     --evaluation_strategy epoch \
     --eval_steps 2 \
     --save_total_limit 3 \
-    --num_train_epochs 10 \
-    --report_to none \
+    --num_train_epochs 5 \
+    --report_to wandb \
     --deepspeed "configs/ds_config.json" \
     --overwrite_output_dir \
