@@ -5,12 +5,13 @@ deepspeed --num_gpus=8 train.py \
     --load_from_local True \
     --input_col_name "hubert_discrete_tokens" \
     --output_col_name "text" \
+    --max_eval_samples 1000 \
     --max_seq_length 2048 \
     --preprocessing_num_workers 4 \
     --train_split_name "train" \
     --test_split_name "test" \
     --validation_split_name "validation" \
-    --per_device_train_batch_size 16 \
+    --per_device_train_batch_size 8 \
     --gradient_accumulation_steps 4 \
     --gradient_checkpointing \
     --per_device_eval_batch_size  4 \
@@ -18,9 +19,11 @@ deepspeed --num_gpus=8 train.py \
     --save_strategy steps \
     --save_steps 100 \
     --evaluation_strategy epoch \
-    --eval_steps 2 \
-    --save_total_limit 3 \
-    --num_train_epochs 5 \
-    --report_to wandb \
-    --deepspeed "configs/ds_config.json" \
+    --eval_steps 5 \
+    --num_train_epochs 50 \
+    --do_train True \
+    --do_eval True \
+    --eval_before_training False \
+    --report_to none \
+    --deepspeed "configs/ds_config3.json" \
     --overwrite_output_dir \

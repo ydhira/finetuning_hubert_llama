@@ -13,6 +13,7 @@
 #    limitations under the License.
 
 import copy
+import sys
 import logging
 from dataclasses import dataclass, field
 from typing import Optional, Dict, Sequence
@@ -116,13 +117,17 @@ class TrainingArguments(transformers.Seq2SeqTrainingArguments):
     cache_dir: Optional[str] = field(default=None)
     optim: str = field(default="adamw_torch")
     model_max_length: int = field(
-        default=512,
+        default=2048,
         metadata={"help": "Maximum sequence length. Sequences will be right padded (and possibly truncated)."},
     )
     
     preprocessing_num_workers: Optional[int] = field(
         default=4,
         metadata={"help":"Number of workers for preprocessing"}
+    )
+    eval_before_training:Optional[bool]=field(
+        default=False,
+        metadata={"help":"Whether to run the evaluation before training."}
     )
     
  
@@ -150,7 +155,7 @@ def preprocess(example, tokenizer, data_args):
     labels = input_ids.clone()
     
     # tokenize source seprately 
-    source_tokenized = tokenizer(example[data_args.input_col_name], return_tensors="pt")
+    source_tokenized = tokenizer(example[data_args.input_col_name], return_tensors="pt", max_length=data_args.max_seq_length, truncation=True)
     
     # mask the input [discrete tokens] part for avoiding loss
     
@@ -169,6 +174,31 @@ def train():
     
     parser = transformers.HfArgumentParser((ModelArguments, DataArguments, TrainingArguments))
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+    
+    # Setup logging
+    logging.basicConfig(
+        format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
+        datefmt="%m/%d/%Y %H:%M:%S",
+        handlers=[logging.StreamHandler(sys.stdout)],
+    )
+
+    if training_args.should_log:
+        # The default of training_args.log_level is passive, so we set log level at info here to have that default.
+        transformers.utils.logging.set_verbosity_info()
+
+    log_level = training_args.get_process_log_level()
+    logger.setLevel(log_level)
+    datasets.utils.logging.set_verbosity(log_level)
+    transformers.utils.logging.set_verbosity(log_level)
+    transformers.utils.logging.enable_default_handler()
+    transformers.utils.logging.enable_explicit_format()
+
+    # Log on each process the small summary:
+    logger.warning(
+        f"Process rank: {training_args.local_rank}, device: {training_args.device}, n_gpu: {training_args.n_gpu}"
+        + f"distributed training: {training_args.parallel_mode.value == 'distributed'}, 16-bits training: {training_args.fp16}"
+    )
+    logger.info(f"Training parameters {training_args}")
 
     model = transformers.AutoModelForCausalLM.from_pretrained(
         model_args.model_name_or_path,
@@ -229,16 +259,18 @@ def train():
         tokenizer=tokenizer,
         data_args=data_args
     )
-    vectorized_datasets = raw_datasets.map(
-            encode_function,
-            batched=False,
-            num_proc=training_args.preprocessing_num_workers,
-            remove_columns=[name for name in raw_datasets["train"].column_names if name not in ["input_ids", "labels", "attention_mask"]],
-            desc="Tokenizing and reformatting data",
-        )
-    
-    # so apprently .map changes tensors into list but we need tensors for training
-    vectorized_datasets.set_format("pt", columns=["input_ids", "attention_mask", "labels"], output_all_columns=True)
+    with training_args.main_process_first(desc="Processing instruction data"):
+        vectorized_datasets = raw_datasets.map(
+                encode_function,
+                batched=False,
+                num_proc=training_args.preprocessing_num_workers,
+                remove_columns=[name for name in raw_datasets["train"].column_names if name not in ["input_ids", "labels", "attention_mask"]],
+                desc="Tokenizing and reformatting data",
+            )
+
+        # so apprently .map changes tensors into list but we need tensors for training
+        vectorized_datasets.set_format("pt", columns=["input_ids", "attention_mask", "labels"], output_all_columns=True)
+        vectorized_datasets = vectorized_datasets.filter(lambda example: (example['labels'] != -100).any())
 
     
     # update training args to make output dir
@@ -249,17 +281,22 @@ def train():
     
     def compute_metrics(pred):
         # import pdb;pdb.set_trace()
-        pred_logits = torch.from_numpy(pred.predictions)
-        label_ids = torch.from_numpy(pred.label_ids)
+        # pred_logits = torch.from_numpy(pred.predictions)
+        # label_ids = torch.from_numpy(pred.label_ids)
+        # import pdb; pdb.set_trace()
         
+        label_ids = pred.label_ids
+        
+        pred_ids = pred.predictions[0]
+                
         # replace -100 with the pad_token_id
         label_ids[label_ids == -100] = tokenizer.pad_token_id
-
-        # Apply softmax to get probabilities
-        pred_probs = F.softmax(pred_logits, dim=-1)
-
+        pred_ids[pred_ids == -100] = tokenizer.pad_token_id
+        
+        
+        # import pdb; pdb.set_trace()
         # Take the argmax to get the predicted token IDs
-        pred_ids = torch.argmax(pred_probs, dim=-1)
+        # pred_ids = torch.argmax(pred_probs, dim=-1)
 
         # Decode the token IDs to strings
         pred_str = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)#.lower()
@@ -268,19 +305,39 @@ def train():
         # drop empty refs/preds
         filtered_pred_str, filtered_label_str = map(list, zip(*[(pred, label) for pred, label in zip(pred_str, label_str) if pred != "" and label != ""]))
 
+        # import pdb;pdb.set_trace()
 
         wer = 100 * jiwer.wer(filtered_label_str, filtered_pred_str)
         cer = 100 * jiwer.cer(filtered_label_str, filtered_pred_str)
-
+        
+        logger.info(f'''
+                    Examples.
+                    Ground Truth: {filtered_label_str[0]}
+                    Prediction: {filtered_pred_str[0]}
+                    Ground Truth: {filtered_label_str[1]}
+                    Prediction: {filtered_pred_str[1]}
+        
+        ''')
+        
         return {"wer": f'{wer:.2f}', "cer": f'{cer:.2f}'}
 
-
+    def preprocess_logits_for_metrics(logits, labels):
+        """
+        Original Trainer may have a memory leak. 
+        This is a workaround to avoid storing too many tensors that are not needed.
+        """
+        # import pdb;pdb.set_trace()
+        pred_probs = F.softmax(logits, dim=-1)
+        pred_ids = torch.argmax(pred_probs, dim=-1)
+        # pred_ids = torch.argmax(logits, dim=-1) # for batched input # pred_ids = torch.argmax(logits[0], dim=-1)
+        return pred_ids, labels
 
     trainer = Trainer(
         model=model, 
         tokenizer=tokenizer, 
         args=training_args,
         compute_metrics=compute_metrics,
+        preprocess_logits_for_metrics=preprocess_logits_for_metrics,
         train_dataset=vectorized_datasets[data_args.train_split_name],
         eval_dataset=vectorized_datasets[data_args.validation_split_name],
         data_collator=DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model)
@@ -304,17 +361,27 @@ def train():
         f"  Total train batch size (w. parallel & distributed) = {train_batch_size * training_args.gradient_accumulation_steps}"
     )
     logger.info(f"  Total optimization steps = {total_train_steps}")
-
-    # if checkpoint:
-    #     print(f"Checkpoint found! Training from {checkpoint} checkpoint!")
-    #     trainer.train(resume_from_checkpoint=checkpoint)
-    # else:
-    #     print(f"No checkpoint found! Training from scratch!")
-    #     trainer.train()
+    
+    if training_args.eval_before_training:
+        logger.info("Running evaluation before training.")
+        results = trainer.evaluate(vectorized_datasets[data_args.test_split_name])
+        # results = trainer.predict(vectorized_datasets[data_args.test_split_name])
+        print(f'Results before training: {results}')
         
-    results = trainer.evaluate(vectorized_datasets[data_args.test_split_name])
-    # results = trainer.predict(vectorized_datasets[data_args.test_split_name])
-    print(results)
+
+    if training_args.do_train:
+        if checkpoint:
+            print(f"Checkpoint found! Training from {checkpoint} checkpoint!")
+            trainer.train(resume_from_checkpoint=checkpoint)
+        else:
+            print(f"No checkpoint found! Training from scratch!")
+            trainer.train()
+        
+    if training_args.do_eval:
+        logger.info("Running training after training.")
+        results = trainer.evaluate(vectorized_datasets[data_args.test_split_name])
+        # results = trainer.predict(vectorized_datasets[data_args.test_split_name])
+        print(f'Results after training: {results}')
     
     # trainer.train()
     # save states 

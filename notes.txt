@@ -31,3 +31,25 @@ Elapsed time: 1.0029857158660889 seconds
 
 # BATCH SIZE for A100 (40G) - 4
 # 
+
+# before training
+{'eval_loss': 4.980897903442383, 'eval_wer': '5182.58', 'eval_cer': '3561.28', 'eval_runtime': 107.7896, 'eval_samples_per_second': 8.257, 'eval_steps_per_second': 0.26}
+
+# after training
+{'eval_loss': 1.5291098356246948, 'eval_wer': '105.67', 'eval_cer': '2618.07', 'eval_runtime': 94.9622, 'eval_samples_per_second': 10.267, 'eval_steps_per_second': 0.326}
+
+# untrained model
+TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T
+# trained model
+outputs2/TinyLlama-1.1B-intermediate-step-1431k-3T/checkpoint-2000
+
+x
+
+# exmaple 2
+'33 icy\n 1 9 9 1 1 1 bbbbbengengengengengengengbbengthetheengengengengengengengengengengfffffffflflowflowflowflowflowflowflowflowflowflowflowflowflowflowflowwhichwhichthemadmadmadeggrgrgrgregregregregregrgrfararnextnextnextnextnextnextdaythe english for to to the french baskets of flowers of which they had made a plentiful provision to greet the arrival of the young princess the french in return invited the english to a supper which was to be given the next day atthethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethethe'
+(Pdb) label_str[1]
+'the english forwarded to the french baskets of flowers of which they had made a plentiful provision to greet the arrival of the young princess the french in return invited the english to a supper which was to be given the next day'
+
+
+LLAMa-2-7B
+Results before training: {'eval_loss': 5.149689674377441, 'eval_wer': '6318.23', 'eval_cer': '5530.82', 'eval_runtime': 207.5622, 'eval_samples_per_second': 4.288, 'eval_steps_per_second': 0.135}

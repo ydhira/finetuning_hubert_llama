@@ -1,0 +1,1167 @@
+nohup: ignoring input
+[2024-03-07 17:21:28,483] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-07 17:21:31,663] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-03-07 17:21:31,663] [INFO] [runner.py:568:main] cmd = /home/abdul.waheed/venv/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgMywgNCwgNSwgNiwgN119 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None train.py --output_dir outputs --model_name_or_path meta-llama/Llama-2-7b-hf --dataset_name_or_path librispeech-hubert-discrete-tokens --load_from_local True --input_col_name hubert_discrete_tokens --output_col_name text --max_eval_samples 1000 --max_seq_length 2048 --preprocessing_num_workers 4 --train_split_name train --test_split_name test --validation_split_name validation --per_device_train_batch_size 8 --gradient_accumulation_steps 1 --gradient_checkpointing --per_device_eval_batch_size 4 --eval_accumulation_steps 4 --save_strategy steps --save_steps 100 --evaluation_strategy epoch --eval_steps 2 --num_train_epochs 3 --do_train True --do_eval True --eval_before_training False --report_to none --deepspeed configs/ds_config3.json --overwrite_output_dir
+[2024-03-07 17:21:33,303] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-07 17:21:35,000] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3, 4, 5, 6, 7]}
+[2024-03-07 17:21:35,000] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=8, node_rank=0
+[2024-03-07 17:21:35,000] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3, 4, 5, 6, 7]})
+[2024-03-07 17:21:35,000] [INFO] [launch.py:163:main] dist_world_size=8
+[2024-03-07 17:21:35,000] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+[2024-03-07 17:21:35,001] [INFO] [launch.py:253:main] process 2055356 spawned with command: ['/home/abdul.waheed/venv/bin/python', '-u', 'train.py', '--local_rank=0', '--output_dir', 'outputs', '--model_name_or_path', 'meta-llama/Llama-2-7b-hf', '--dataset_name_or_path', 'librispeech-hubert-discrete-tokens', '--load_from_local', 'True', '--input_col_name', 'hubert_discrete_tokens', '--output_col_name', 'text', '--max_eval_samples', '1000', '--max_seq_length', '2048', '--preprocessing_num_workers', '4', '--train_split_name', 'train', '--test_split_name', 'test', '--validation_split_name', 'validation', '--per_device_train_batch_size', '8', '--gradient_accumulation_steps', '1', '--gradient_checkpointing', '--per_device_eval_batch_size', '4', '--eval_accumulation_steps', '4', '--save_strategy', 'steps', '--save_steps', '100', '--evaluation_strategy', 'epoch', '--eval_steps', '2', '--num_train_epochs', '3', '--do_train', 'True', '--do_eval', 'True', '--eval_before_training', 'False', '--report_to', 'none', '--deepspeed', 'configs/ds_config3.json', '--overwrite_output_dir']
+[2024-03-07 17:21:35,001] [INFO] [launch.py:253:main] process 2055357 spawned with command: ['/home/abdul.waheed/venv/bin/python', '-u', 'train.py', '--local_rank=1', '--output_dir', 'outputs', '--model_name_or_path', 'meta-llama/Llama-2-7b-hf', '--dataset_name_or_path', 'librispeech-hubert-discrete-tokens', '--load_from_local', 'True', '--input_col_name', 'hubert_discrete_tokens', '--output_col_name', 'text', '--max_eval_samples', '1000', '--max_seq_length', '2048', '--preprocessing_num_workers', '4', '--train_split_name', 'train', '--test_split_name', 'test', '--validation_split_name', 'validation', '--per_device_train_batch_size', '8', '--gradient_accumulation_steps', '1', '--gradient_checkpointing', '--per_device_eval_batch_size', '4', '--eval_accumulation_steps', '4', '--save_strategy', 'steps', '--save_steps', '100', '--evaluation_strategy', 'epoch', '--eval_steps', '2', '--num_train_epochs', '3', '--do_train', 'True', '--do_eval', 'True', '--eval_before_training', 'False', '--report_to', 'none', '--deepspeed', 'configs/ds_config3.json', '--overwrite_output_dir']
+[2024-03-07 17:21:35,002] [INFO] [launch.py:253:main] process 2055358 spawned with command: ['/home/abdul.waheed/venv/bin/python', '-u', 'train.py', '--local_rank=2', '--output_dir', 'outputs', '--model_name_or_path', 'meta-llama/Llama-2-7b-hf', '--dataset_name_or_path', 'librispeech-hubert-discrete-tokens', '--load_from_local', 'True', '--input_col_name', 'hubert_discrete_tokens', '--output_col_name', 'text', '--max_eval_samples', '1000', '--max_seq_length', '2048', '--preprocessing_num_workers', '4', '--train_split_name', 'train', '--test_split_name', 'test', '--validation_split_name', 'validation', '--per_device_train_batch_size', '8', '--gradient_accumulation_steps', '1', '--gradient_checkpointing', '--per_device_eval_batch_size', '4', '--eval_accumulation_steps', '4', '--save_strategy', 'steps', '--save_steps', '100', '--evaluation_strategy', 'epoch', '--eval_steps', '2', '--num_train_epochs', '3', '--do_train', 'True', '--do_eval', 'True', '--eval_before_training', 'False', '--report_to', 'none', '--deepspeed', 'configs/ds_config3.json', '--overwrite_output_dir']
+[2024-03-07 17:21:35,003] [INFO] [launch.py:253:main] process 2055359 spawned with command: ['/home/abdul.waheed/venv/bin/python', '-u', 'train.py', '--local_rank=3', '--output_dir', 'outputs', '--model_name_or_path', 'meta-llama/Llama-2-7b-hf', '--dataset_name_or_path', 'librispeech-hubert-discrete-tokens', '--load_from_local', 'True', '--input_col_name', 'hubert_discrete_tokens', '--output_col_name', 'text', '--max_eval_samples', '1000', '--max_seq_length', '2048', '--preprocessing_num_workers', '4', '--train_split_name', 'train', '--test_split_name', 'test', '--validation_split_name', 'validation', '--per_device_train_batch_size', '8', '--gradient_accumulation_steps', '1', '--gradient_checkpointing', '--per_device_eval_batch_size', '4', '--eval_accumulation_steps', '4', '--save_strategy', 'steps', '--save_steps', '100', '--evaluation_strategy', 'epoch', '--eval_steps', '2', '--num_train_epochs', '3', '--do_train', 'True', '--do_eval', 'True', '--eval_before_training', 'False', '--report_to', 'none', '--deepspeed', 'configs/ds_config3.json', '--overwrite_output_dir']
+[2024-03-07 17:21:35,003] [INFO] [launch.py:253:main] process 2055360 spawned with command: ['/home/abdul.waheed/venv/bin/python', '-u', 'train.py', '--local_rank=4', '--output_dir', 'outputs', '--model_name_or_path', 'meta-llama/Llama-2-7b-hf', '--dataset_name_or_path', 'librispeech-hubert-discrete-tokens', '--load_from_local', 'True', '--input_col_name', 'hubert_discrete_tokens', '--output_col_name', 'text', '--max_eval_samples', '1000', '--max_seq_length', '2048', '--preprocessing_num_workers', '4', '--train_split_name', 'train', '--test_split_name', 'test', '--validation_split_name', 'validation', '--per_device_train_batch_size', '8', '--gradient_accumulation_steps', '1', '--gradient_checkpointing', '--per_device_eval_batch_size', '4', '--eval_accumulation_steps', '4', '--save_strategy', 'steps', '--save_steps', '100', '--evaluation_strategy', 'epoch', '--eval_steps', '2', '--num_train_epochs', '3', '--do_train', 'True', '--do_eval', 'True', '--eval_before_training', 'False', '--report_to', 'none', '--deepspeed', 'configs/ds_config3.json', '--overwrite_output_dir']
+[2024-03-07 17:21:35,004] [INFO] [launch.py:253:main] process 2055361 spawned with command: ['/home/abdul.waheed/venv/bin/python', '-u', 'train.py', '--local_rank=5', '--output_dir', 'outputs', '--model_name_or_path', 'meta-llama/Llama-2-7b-hf', '--dataset_name_or_path', 'librispeech-hubert-discrete-tokens', '--load_from_local', 'True', '--input_col_name', 'hubert_discrete_tokens', '--output_col_name', 'text', '--max_eval_samples', '1000', '--max_seq_length', '2048', '--preprocessing_num_workers', '4', '--train_split_name', 'train', '--test_split_name', 'test', '--validation_split_name', 'validation', '--per_device_train_batch_size', '8', '--gradient_accumulation_steps', '1', '--gradient_checkpointing', '--per_device_eval_batch_size', '4', '--eval_accumulation_steps', '4', '--save_strategy', 'steps', '--save_steps', '100', '--evaluation_strategy', 'epoch', '--eval_steps', '2', '--num_train_epochs', '3', '--do_train', 'True', '--do_eval', 'True', '--eval_before_training', 'False', '--report_to', 'none', '--deepspeed', 'configs/ds_config3.json', '--overwrite_output_dir']
+[2024-03-07 17:21:35,004] [INFO] [launch.py:253:main] process 2055362 spawned with command: ['/home/abdul.waheed/venv/bin/python', '-u', 'train.py', '--local_rank=6', '--output_dir', 'outputs', '--model_name_or_path', 'meta-llama/Llama-2-7b-hf', '--dataset_name_or_path', 'librispeech-hubert-discrete-tokens', '--load_from_local', 'True', '--input_col_name', 'hubert_discrete_tokens', '--output_col_name', 'text', '--max_eval_samples', '1000', '--max_seq_length', '2048', '--preprocessing_num_workers', '4', '--train_split_name', 'train', '--test_split_name', 'test', '--validation_split_name', 'validation', '--per_device_train_batch_size', '8', '--gradient_accumulation_steps', '1', '--gradient_checkpointing', '--per_device_eval_batch_size', '4', '--eval_accumulation_steps', '4', '--save_strategy', 'steps', '--save_steps', '100', '--evaluation_strategy', 'epoch', '--eval_steps', '2', '--num_train_epochs', '3', '--do_train', 'True', '--do_eval', 'True', '--eval_before_training', 'False', '--report_to', 'none', '--deepspeed', 'configs/ds_config3.json', '--overwrite_output_dir']
+[2024-03-07 17:21:35,005] [INFO] [launch.py:253:main] process 2055363 spawned with command: ['/home/abdul.waheed/venv/bin/python', '-u', 'train.py', '--local_rank=7', '--output_dir', 'outputs', '--model_name_or_path', 'meta-llama/Llama-2-7b-hf', '--dataset_name_or_path', 'librispeech-hubert-discrete-tokens', '--load_from_local', 'True', '--input_col_name', 'hubert_discrete_tokens', '--output_col_name', 'text', '--max_eval_samples', '1000', '--max_seq_length', '2048', '--preprocessing_num_workers', '4', '--train_split_name', 'train', '--test_split_name', 'test', '--validation_split_name', 'validation', '--per_device_train_batch_size', '8', '--gradient_accumulation_steps', '1', '--gradient_checkpointing', '--per_device_eval_batch_size', '4', '--eval_accumulation_steps', '4', '--save_strategy', 'steps', '--save_steps', '100', '--evaluation_strategy', 'epoch', '--eval_steps', '2', '--num_train_epochs', '3', '--do_train', 'True', '--do_eval', 'True', '--eval_before_training', 'False', '--report_to', 'none', '--deepspeed', 'configs/ds_config3.json', '--overwrite_output_dir']
+
+===================================BUG REPORT===================================
+
+
+
+===================================BUG REPORT===================================
+===================================BUG REPORT===================================Welcome to bitsandbytes. For bug reports, please submit your error trace to: https://github.com/TimDettmers/bitsandbytes/issues===================================BUG REPORT===================================
+===================================BUG REPORT===================================
+
+
+Welcome to bitsandbytes. For bug reports, please submit your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
+Welcome to bitsandbytes. For bug reports, please submit your error trace to: https://github.com/TimDettmers/bitsandbytes/issues================================================================================Welcome to bitsandbytes. For bug reports, please submit your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
+Welcome to bitsandbytes. For bug reports, please submit your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
+
+
+================================================================================
+================================================================================================================================================================
+================================================================================
+
+
+
+===================================BUG REPORT===================================
+Welcome to bitsandbytes. For bug reports, please submit your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
+================================================================================
+
+===================================BUG REPORT===================================
+Welcome to bitsandbytes. For bug reports, please submit your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
+================================================================================
+
+===================================BUG REPORT===================================
+Welcome to bitsandbytes. For bug reports, please submit your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
+================================================================================
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/share/lmod/lmod/share/man')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/modulefiles')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/opt/intel/oneapi/compiler/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/dev-utilities/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/itac/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/envs/pytorch-gpu/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/mpi/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/pkgs/oneccl_bind_pt-1.13.200-py39_gpu_0/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/advisor/2023.1.0/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/Linux_x86_64/23.5/comm_libs/12.1/hpcx/hpcx-2.15/modulefiles'), PosixPath('/opt/intel/oneapi/dpl/2022.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/pkgs/oneccl_bind_pt-1.13.0-py39_cpu_1/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/mkl/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/dal/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/ipp/2021.8.0/modulefiles'), PosixPath('/opt/intel/oneapi/inspector/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/debugger/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/vtune/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/ccl/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/pytorch/1.13.10.2/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/tbb/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/ippcp/2021.7.0/modulefiles'), PosixPath('/opt/intel/oneapi/dnnl/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/modulefiles'), PosixPath('/sw/com/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/modulefiles'), PosixPath('/apps/modulefiles'), PosixPath('/opt/intel/oneapi/dpcpp-ct/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/clck/2021.7.3/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/Linux_x86_64/23.5/comm_libs/11.8/hpcx/hpcx-2.14/modulefiles')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('() {  eval $($LMOD_DIR/ml_cmd "$@")\n}')}
+  warn(msg)
+CUDA_SETUP: WARNING! libcudart.so not found in any environmental path. Searching /usr/local/cuda/lib64...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/local/cuda/lib64')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: No libcudart.so found! Install CUDA or the cudatoolkit package (anaconda)!
+  warn(msg)
+CUDA SETUP: Highest compute capability among GPUs detected: 8.0
+CUDA SETUP: Detected CUDA version 117
+CUDA SETUP: Loading binary /home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cextension.py:31: UserWarning: The installed version of bitsandbytes was compiled without GPU support. 8-bit optimizers and GPU quantization are unavailable.
+  warn("The installed version of bitsandbytes was compiled without GPU support. "
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/share/lmod/lmod/share/man')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/modulefiles')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/sw/com/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/pkgs/oneccl_bind_pt-1.13.0-py39_cpu_1/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/apps/modulefiles'), PosixPath('/opt/intel/oneapi/vtune/2023.1.0/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/modulefiles'), PosixPath('/opt/intel/oneapi/dev-utilities/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/debugger/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/advisor/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/compiler/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/inspector/2023.1.0/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/Linux_x86_64/23.5/comm_libs/12.1/hpcx/hpcx-2.15/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/envs/pytorch-gpu/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/ccl/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/pytorch/1.13.10.2/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/dal/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/ippcp/2021.7.0/modulefiles'), PosixPath('/opt/intel/oneapi/clck/2021.7.3/modulefiles'), PosixPath('/opt/intel/oneapi/dpcpp-ct/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/pkgs/oneccl_bind_pt-1.13.200-py39_gpu_0/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/ipp/2021.8.0/modulefiles'), PosixPath('/opt/intel/oneapi/mkl/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/dnnl/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/modulefiles'), PosixPath('/opt/intel/oneapi/mpi/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/dpl/2022.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/itac/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/tbb/2021.9.0/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/Linux_x86_64/23.5/comm_libs/11.8/hpcx/hpcx-2.14/modulefiles')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('() {  eval $($LMOD_DIR/ml_cmd "$@")\n}')}
+  warn(msg)
+CUDA_SETUP: WARNING! libcudart.so not found in any environmental path. Searching /usr/local/cuda/lib64...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/local/cuda/lib64')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: No libcudart.so found! Install CUDA or the cudatoolkit package (anaconda)!
+  warn(msg)
+CUDA SETUP: Highest compute capability among GPUs detected: 8.0
+CUDA SETUP: Detected CUDA version 117
+CUDA SETUP: Loading binary /home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cextension.py:31: UserWarning: The installed version of bitsandbytes was compiled without GPU support. 8-bit optimizers and GPU quantization are unavailable.
+  warn("The installed version of bitsandbytes was compiled without GPU support. "
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/share/lmod/lmod/share/man')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/modulefiles')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/opt/intel/oneapi/intelpython/python3.9/pkgs/oneccl_bind_pt-1.13.200-py39_gpu_0/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/pytorch/1.13.10.2/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/dev-utilities/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/pkgs/oneccl_bind_pt-1.13.0-py39_cpu_1/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/tbb/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/ccl/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/envs/pytorch-gpu/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/ipp/2021.8.0/modulefiles'), PosixPath('/opt/intel/oneapi/clck/2021.7.3/modulefiles'), PosixPath('/opt/intel/oneapi/advisor/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/vtune/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/compiler/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/itac/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/modulefiles'), PosixPath('/opt/intel/oneapi/inspector/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/dpcpp-ct/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/mkl/2023.1.0/modulefiles'), PosixPath('/apps/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/modulefiles'), PosixPath('/opt/intel/oneapi/dnnl/2023.1.0/modulefiles'), PosixPath('/sw/com/modulefiles'), PosixPath('/opt/intel/oneapi/debugger/2023.1.0/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/Linux_x86_64/23.5/comm_libs/11.8/hpcx/hpcx-2.14/modulefiles'), PosixPath('/opt/intel/oneapi/ippcp/2021.7.0/modulefiles'), PosixPath('/opt/intel/oneapi/mpi/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/dpl/2022.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/dal/2023.1.0/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/Linux_x86_64/23.5/comm_libs/12.1/hpcx/hpcx-2.15/modulefiles')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('() {  eval $($LMOD_DIR/ml_cmd "$@")\n}')}
+  warn(msg)
+CUDA_SETUP: WARNING! libcudart.so not found in any environmental path. Searching /usr/local/cuda/lib64...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/local/cuda/lib64')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: No libcudart.so found! Install CUDA or the cudatoolkit package (anaconda)!
+  warn(msg)
+CUDA SETUP: Highest compute capability among GPUs detected: 8.0
+CUDA SETUP: Detected CUDA version 117
+CUDA SETUP: Loading binary /home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cextension.py:31: UserWarning: The installed version of bitsandbytes was compiled without GPU support. 8-bit optimizers and GPU quantization are unavailable.
+  warn("The installed version of bitsandbytes was compiled without GPU support. "
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/share/lmod/lmod/share/man')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/modulefiles')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/opt/intel/oneapi/compiler/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/pkgs/oneccl_bind_pt-1.13.0-py39_cpu_1/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/Linux_x86_64/23.5/comm_libs/11.8/hpcx/hpcx-2.14/modulefiles'), PosixPath('/opt/intel/oneapi/debugger/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/mkl/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/ccl/2021.9.0/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/modulefiles'), PosixPath('/opt/intel/oneapi/dnnl/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/dal/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/dpcpp-ct/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/ipp/2021.8.0/modulefiles'), PosixPath('/opt/intel/oneapi/tbb/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/inspector/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/mpi/2021.9.0/modulefiles'), PosixPath('/sw/com/modulefiles'), PosixPath('/opt/intel/oneapi/pytorch/1.13.10.2/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/dev-utilities/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/vtune/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/envs/pytorch-gpu/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/apps/modulefiles'), PosixPath('/opt/intel/oneapi/itac/2021.9.0/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/Linux_x86_64/23.5/comm_libs/12.1/hpcx/hpcx-2.15/modulefiles'), PosixPath('/opt/intel/oneapi/clck/2021.7.3/modulefiles'), PosixPath('/opt/intel/oneapi/dpl/2022.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/ippcp/2021.7.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/pkgs/oneccl_bind_pt-1.13.200-py39_gpu_0/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/modulefiles'), PosixPath('/opt/intel/oneapi/advisor/2023.1.0/modulefiles')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('() {  eval $($LMOD_DIR/ml_cmd "$@")\n}')}
+  warn(msg)
+CUDA_SETUP: WARNING! libcudart.so not found in any environmental path. Searching /usr/local/cuda/lib64...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/local/cuda/lib64')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: No libcudart.so found! Install CUDA or the cudatoolkit package (anaconda)!
+  warn(msg)
+CUDA SETUP: Highest compute capability among GPUs detected: 8.0
+CUDA SETUP: Detected CUDA version 117
+CUDA SETUP: Loading binary /home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cextension.py:31: UserWarning: The installed version of bitsandbytes was compiled without GPU support. 8-bit optimizers and GPU quantization are unavailable.
+  warn("The installed version of bitsandbytes was compiled without GPU support. "
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/share/lmod/lmod/share/man')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/modulefiles')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/opt/intel/oneapi/compiler/2023.1.0/modulefiles'), PosixPath('/sw/com/modulefiles'), PosixPath('/opt/intel/oneapi/tbb/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/clck/2021.7.3/modulefiles'), PosixPath('/opt/intel/oneapi/dpcpp-ct/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/advisor/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/itac/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/ccl/2021.9.0/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/Linux_x86_64/23.5/comm_libs/11.8/hpcx/hpcx-2.14/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/Linux_x86_64/23.5/comm_libs/12.1/hpcx/hpcx-2.15/modulefiles'), PosixPath('/opt/intel/oneapi/ippcp/2021.7.0/modulefiles'), PosixPath('/opt/intel/oneapi/mkl/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/envs/pytorch-gpu/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/modulefiles'), PosixPath('/opt/intel/oneapi/vtune/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/debugger/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/dnnl/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/pkgs/oneccl_bind_pt-1.13.200-py39_gpu_0/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/pytorch/1.13.10.2/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/mpi/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/dpl/2022.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/inspector/2023.1.0/modulefiles'), PosixPath('/apps/modulefiles'), PosixPath('/opt/intel/oneapi/dev-utilities/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/modulefiles'), PosixPath('/opt/intel/oneapi/ipp/2021.8.0/modulefiles'), PosixPath('/opt/intel/oneapi/dal/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/pkgs/oneccl_bind_pt-1.13.0-py39_cpu_1/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('() {  eval $($LMOD_DIR/ml_cmd "$@")\n}')}
+  warn(msg)
+CUDA_SETUP: WARNING! libcudart.so not found in any environmental path. Searching /usr/local/cuda/lib64...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/local/cuda/lib64')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: No libcudart.so found! Install CUDA or the cudatoolkit package (anaconda)!
+  warn(msg)
+CUDA SETUP: Highest compute capability among GPUs detected: 8.0
+CUDA SETUP: Detected CUDA version 117
+CUDA SETUP: Loading binary /home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cextension.py:31: UserWarning: The installed version of bitsandbytes was compiled without GPU support. 8-bit optimizers and GPU quantization are unavailable.
+  warn("The installed version of bitsandbytes was compiled without GPU support. "
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/share/lmod/lmod/share/man')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/modulefiles')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/opt/intel/oneapi/mkl/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/envs/pytorch-gpu/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/dpcpp-ct/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/clck/2021.7.3/modulefiles'), PosixPath('/opt/intel/oneapi/tbb/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/debugger/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/ippcp/2021.7.0/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/Linux_x86_64/23.5/comm_libs/12.1/hpcx/hpcx-2.15/modulefiles'), PosixPath('/opt/intel/oneapi/vtune/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/dev-utilities/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/pytorch/1.13.10.2/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/modulefiles'), PosixPath('/opt/intel/oneapi/ipp/2021.8.0/modulefiles'), PosixPath('/opt/intel/oneapi/itac/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/dal/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/advisor/2023.1.0/modulefiles'), PosixPath('/sw/com/modulefiles'), PosixPath('/opt/intel/oneapi/mpi/2021.9.0/modulefiles'), PosixPath('/apps/modulefiles'), PosixPath('/opt/intel/oneapi/compiler/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/ccl/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/dpl/2022.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/dnnl/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/inspector/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/pkgs/oneccl_bind_pt-1.13.0-py39_cpu_1/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/pkgs/oneccl_bind_pt-1.13.200-py39_gpu_0/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/Linux_x86_64/23.5/comm_libs/11.8/hpcx/hpcx-2.14/modulefiles')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('() {  eval $($LMOD_DIR/ml_cmd "$@")\n}')}
+  warn(msg)
+CUDA_SETUP: WARNING! libcudart.so not found in any environmental path. Searching /usr/local/cuda/lib64...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/local/cuda/lib64')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: No libcudart.so found! Install CUDA or the cudatoolkit package (anaconda)!
+  warn(msg)
+CUDA SETUP: Highest compute capability among GPUs detected: 8.0
+CUDA SETUP: Detected CUDA version 117
+CUDA SETUP: Loading binary /home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cextension.py:31: UserWarning: The installed version of bitsandbytes was compiled without GPU support. 8-bit optimizers and GPU quantization are unavailable.
+  warn("The installed version of bitsandbytes was compiled without GPU support. "
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/share/lmod/lmod/share/man')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/modulefiles')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/sw/com/modulefiles'), PosixPath('/opt/intel/oneapi/tbb/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/dal/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/ccl/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/pkgs/oneccl_bind_pt-1.13.200-py39_gpu_0/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/advisor/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/ipp/2021.8.0/modulefiles'), PosixPath('/opt/intel/oneapi/pytorch/1.13.10.2/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/mpi/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/inspector/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/dpcpp-ct/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/ippcp/2021.7.0/modulefiles'), PosixPath('/opt/intel/oneapi/dpl/2022.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/vtune/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/envs/pytorch-gpu/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/clck/2021.7.3/modulefiles'), PosixPath('/opt/intel/oneapi/debugger/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/itac/2021.9.0/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/Linux_x86_64/23.5/comm_libs/11.8/hpcx/hpcx-2.14/modulefiles'), PosixPath('/opt/intel/oneapi/compiler/2023.1.0/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/modulefiles'), PosixPath('/opt/intel/oneapi/dnnl/2023.1.0/modulefiles'), PosixPath('/apps/modulefiles'), PosixPath('/opt/intel/oneapi/mkl/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/pkgs/oneccl_bind_pt-1.13.0-py39_cpu_1/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/Linux_x86_64/23.5/comm_libs/12.1/hpcx/hpcx-2.15/modulefiles'), PosixPath('/opt/intel/oneapi/dev-utilities/2021.9.0/modulefiles')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('() {  eval $($LMOD_DIR/ml_cmd "$@")\n}')}
+  warn(msg)
+CUDA_SETUP: WARNING! libcudart.so not found in any environmental path. Searching /usr/local/cuda/lib64...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/local/cuda/lib64')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: No libcudart.so found! Install CUDA or the cudatoolkit package (anaconda)!
+  warn(msg)
+CUDA SETUP: Highest compute capability among GPUs detected: 8.0
+CUDA SETUP: Detected CUDA version 117
+CUDA SETUP: Loading binary /home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cextension.py:31: UserWarning: The installed version of bitsandbytes was compiled without GPU support. 8-bit optimizers and GPU quantization are unavailable.
+  warn("The installed version of bitsandbytes was compiled without GPU support. "
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/share/lmod/lmod/share/man')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/modulefiles')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/opt/intel/oneapi/dev-utilities/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/ccl/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/mpi/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/envs/pytorch-gpu/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/sw/com/modulefiles'), PosixPath('/opt/intel/oneapi/ippcp/2021.7.0/modulefiles'), PosixPath('/opt/intel/oneapi/dnnl/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/dal/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/dpcpp-ct/2023.1.0/modulefiles'), PosixPath('/apps/modulefiles'), PosixPath('/opt/intel/oneapi/advisor/2023.1.0/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/modulefiles'), PosixPath('/opt/intel/oneapi/vtune/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/ipp/2021.8.0/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/Linux_x86_64/23.5/comm_libs/11.8/hpcx/hpcx-2.14/modulefiles'), PosixPath('/opt/intel/oneapi/clck/2021.7.3/modulefiles'), PosixPath('/opt/intel/oneapi/inspector/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/dpl/2022.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/pkgs/oneccl_bind_pt-1.13.0-py39_cpu_1/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/tbb/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/mkl/2023.1.0/modulefiles'), PosixPath('/opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/modulefiles'), PosixPath('/opt/intel/oneapi/debugger/2023.1.0/modulefiles'), PosixPath('/opt/nvidia/hpc_sdk/Linux_x86_64/23.5/comm_libs/12.1/hpcx/hpcx-2.15/modulefiles'), PosixPath('/opt/intel/oneapi/pytorch/1.13.10.2/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/itac/2021.9.0/modulefiles'), PosixPath('/opt/intel/oneapi/intelpython/python3.9/pkgs/oneccl_bind_pt-1.13.200-py39_gpu_0/lib/python3.9/site-packages/oneccl_bindings_for_pytorch/modulefiles'), PosixPath('/opt/intel/oneapi/compiler/2023.1.0/modulefiles')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('() {  eval $($LMOD_DIR/ml_cmd "$@")\n}')}
+  warn(msg)
+CUDA_SETUP: WARNING! libcudart.so not found in any environmental path. Searching /usr/local/cuda/lib64...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/usr/local/cuda/lib64')}
+  warn(msg)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: WARNING: No libcudart.so found! Install CUDA or the cudatoolkit package (anaconda)!
+  warn(msg)
+CUDA SETUP: Highest compute capability among GPUs detected: 8.0
+CUDA SETUP: Detected CUDA version 117
+CUDA SETUP: Loading binary /home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/bitsandbytes/cextension.py:31: UserWarning: The installed version of bitsandbytes was compiled without GPU support. 8-bit optimizers and GPU quantization are unavailable.
+  warn("The installed version of bitsandbytes was compiled without GPU support. "
+[2024-03-07 17:21:39,864] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-07 17:21:39,947] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-07 17:21:39,996] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-07 17:21:40,104] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-07 17:21:40,123] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-07 17:21:40,150] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-07 17:21:40,190] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-07 17:21:40,212] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-07 17:21:41,636] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-03-07 17:21:41,715] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-03-07 17:21:41,774] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-03-07 17:21:41,774] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-03-07 17:21:41,827] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-03-07 17:21:41,900] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-03-07 17:21:41,924] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-03-07 17:21:41,951] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-03-07 17:21:42,041] [INFO] [comm.py:637:init_distributed] cdb=None
+03/07/2024 17:21:42 - WARNING - __main__ - Process rank: 6, device: cuda:6, n_gpu: 1distributed training: True, 16-bits training: False
+03/07/2024 17:21:42 - WARNING - __main__ - Process rank: 5, device: cuda:5, n_gpu: 1distributed training: True, 16-bits training: False
+03/07/2024 17:21:42 - WARNING - __main__ - Process rank: 4, device: cuda:4, n_gpu: 1distributed training: True, 16-bits training: False
+03/07/2024 17:21:42 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
+03/07/2024 17:21:42 - INFO - __main__ - Training parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+cache_dir=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=configs/ds_config3.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=4,
+eval_before_training=False,
+eval_delay=0,
+eval_steps=2.0,
+evaluation_strategy=epoch,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=1,
+gradient_checkpointing=True,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=outputs/runs/Mar07_17-21-39_675d-3,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+model_max_length=2048,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=3.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=outputs,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=4,
+per_device_train_batch_size=8,
+predict_with_generate=False,
+prediction_loss_only=False,
+preprocessing_num_workers=4,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=outputs,
+save_on_each_node=False,
+save_safetensors=True,
+save_steps=100,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+03/07/2024 17:21:42 - WARNING - __main__ - Process rank: 3, device: cuda:3, n_gpu: 1distributed training: True, 16-bits training: False
+03/07/2024 17:21:42 - WARNING - __main__ - Process rank: 1, device: cuda:1, n_gpu: 1distributed training: True, 16-bits training: False
+03/07/2024 17:21:42 - WARNING - __main__ - Process rank: 7, device: cuda:7, n_gpu: 1distributed training: True, 16-bits training: False
+03/07/2024 17:21:42 - WARNING - __main__ - Process rank: 2, device: cuda:2, n_gpu: 1distributed training: True, 16-bits training: False
+[INFO|configuration_utils.py:717] 2024-03-07 17:21:43,077 >> loading configuration file config.json from cache at /mnt/beegfs/.cache/hub/models--meta-llama--Llama-2-7b-hf/snapshots/8cca527612d856d7d32bd94f8103728d614eb852/config.json
+[INFO|configuration_utils.py:777] 2024-03-07 17:21:43,079 >> Model config LlamaConfig {
+  "_name_or_path": "meta-llama/Llama-2-7b-hf",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_position_embeddings": 4096,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.35.1",
+  "use_cache": true,
+  "vocab_size": 32000
+}
+
+[INFO|modeling_utils.py:3121] 2024-03-07 17:21:43,172 >> loading weights file model.safetensors from cache at /mnt/beegfs/.cache/hub/models--meta-llama--Llama-2-7b-hf/snapshots/8cca527612d856d7d32bd94f8103728d614eb852/model.safetensors.index.json
+[INFO|configuration_utils.py:791] 2024-03-07 17:21:46,455 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2
+}
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:16<00:16, 16.73s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:18<00:18, 18.48s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:17<00:17, 17.32s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:17<00:17, 17.61s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:17<00:17, 17.63s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:17<00:17, 17.61s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:17<00:17, 17.69s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:17<00:17, 17.78s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:22<00:00, 10.29s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:22<00:00, 11.34s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:22<00:00, 10.50s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:22<00:00, 11.43s/it]
+[INFO|modeling_utils.py:3950] 2024-03-07 17:22:54,675 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+[INFO|modeling_utils.py:3958] 2024-03-07 17:22:54,675 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at meta-llama/Llama-2-7b-hf.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:751] 2024-03-07 17:22:54,917 >> loading configuration file generation_config.json from cache at /mnt/beegfs/.cache/hub/models--meta-llama--Llama-2-7b-hf/snapshots/8cca527612d856d7d32bd94f8103728d614eb852/generation_config.json
+[INFO|configuration_utils.py:791] 2024-03-07 17:22:54,918 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "do_sample": true,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 0,
+  "temperature": 0.6,
+  "top_p": 0.9
+}
+
+Loading checkpoint shards: 100%|██████████| 2/2 [00:24<00:00, 11.08s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:24<00:00, 12.19s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:23<00:00, 10.62s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:23<00:00, 11.67s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:23<00:00, 10.63s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:23<00:00, 11.68s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:23<00:00, 10.61s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:23<00:00, 11.69s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:23<00:00, 10.62s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:23<00:00, 11.68s/it]
+03/07/2024 17:22:55 - WARNING - root - Loading data...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/dataset_dict.py:1241: FutureWarning: 'fs' was is deprecated in favor of 'storage_options' in version 2.8.0 and will be removed in 3.0.0.
+You can remove this warning by passing 'storage_options=fs.storage_options' instead.
+  warnings.warn(
+[INFO|tokenization_utils_base.py:2022] 2024-03-07 17:22:55,278 >> loading file tokenizer.model from cache at /mnt/beegfs/.cache/hub/models--meta-llama--Llama-2-7b-hf/snapshots/8cca527612d856d7d32bd94f8103728d614eb852/tokenizer.model
+[INFO|tokenization_utils_base.py:2022] 2024-03-07 17:22:55,278 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2022] 2024-03-07 17:22:55,278 >> loading file special_tokens_map.json from cache at /mnt/beegfs/.cache/hub/models--meta-llama--Llama-2-7b-hf/snapshots/8cca527612d856d7d32bd94f8103728d614eb852/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2022] 2024-03-07 17:22:55,278 >> loading file tokenizer_config.json from cache at /mnt/beegfs/.cache/hub/models--meta-llama--Llama-2-7b-hf/snapshots/8cca527612d856d7d32bd94f8103728d614eb852/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2022] 2024-03-07 17:22:55,278 >> loading file tokenizer.json from cache at /mnt/beegfs/.cache/hub/models--meta-llama--Llama-2-7b-hf/snapshots/8cca527612d856d7d32bd94f8103728d614eb852/tokenizer.json
+Loading checkpoint shards: 100%|██████████| 2/2 [00:23<00:00, 10.71s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:23<00:00, 11.74s/it]
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/table.py:1427: FutureWarning: promote has been superseded by mode='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+03/07/2024 17:22:55 - WARNING - root - Loading data...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/dataset_dict.py:1241: FutureWarning: 'fs' was is deprecated in favor of 'storage_options' in version 2.8.0 and will be removed in 3.0.0.
+You can remove this warning by passing 'storage_options=fs.storage_options' instead.
+  warnings.warn(
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/table.py:1427: FutureWarning: promote has been superseded by mode='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-72a26f944c27b306.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-72a26f944c27b306.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-fe963c0a323d4dfe.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-fe963c0a323d4dfe.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-d8e5c1e151b94ef5.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-d8e5c1e151b94ef5.arrow
+03/07/2024 17:22:55 - WARNING - root - Loading data...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/dataset_dict.py:1241: FutureWarning: 'fs' was is deprecated in favor of 'storage_options' in version 2.8.0 and will be removed in 3.0.0.
+You can remove this warning by passing 'storage_options=fs.storage_options' instead.
+  warnings.warn(
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-a878860d612aad90.arrow
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/table.py:1427: FutureWarning: promote has been superseded by mode='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-dc386a905bac6523.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-72a26f944c27b306.arrow
+03/07/2024 17:22:55 - WARNING - root - Loading data...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/dataset_dict.py:1241: FutureWarning: 'fs' was is deprecated in favor of 'storage_options' in version 2.8.0 and will be removed in 3.0.0.
+You can remove this warning by passing 'storage_options=fs.storage_options' instead.
+  warnings.warn(
+03/07/2024 17:22:55 - WARNING - root - Loading data...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/dataset_dict.py:1241: FutureWarning: 'fs' was is deprecated in favor of 'storage_options' in version 2.8.0 and will be removed in 3.0.0.
+You can remove this warning by passing 'storage_options=fs.storage_options' instead.
+  warnings.warn(
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-fe963c0a323d4dfe.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-d8e5c1e151b94ef5.arrow
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/table.py:1427: FutureWarning: promote has been superseded by mode='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-03edba438cedc2d4.arrow
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/table.py:1427: FutureWarning: promote has been superseded by mode='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+03/07/2024 17:22:55 - WARNING - root - Loading data...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/dataset_dict.py:1241: FutureWarning: 'fs' was is deprecated in favor of 'storage_options' in version 2.8.0 and will be removed in 3.0.0.
+You can remove this warning by passing 'storage_options=fs.storage_options' instead.
+  warnings.warn(
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-72a26f944c27b306.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-72a26f944c27b306.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-fe963c0a323d4dfe.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-fe963c0a323d4dfe.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-d8e5c1e151b94ef5.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-d8e5c1e151b94ef5.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-2a3ad9e8c2c92ce2.arrow
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/table.py:1427: FutureWarning: promote has been superseded by mode='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-72a26f944c27b306.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-fe963c0a323d4dfe.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-d8e5c1e151b94ef5.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-cc688694290d7caa.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-ccfe9b4e563060e1.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-eb3e6e92f7159da3.arrow
+03/07/2024 17:22:55 - WARNING - root - Loading data...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/dataset_dict.py:1241: FutureWarning: 'fs' was is deprecated in favor of 'storage_options' in version 2.8.0 and will be removed in 3.0.0.
+You can remove this warning by passing 'storage_options=fs.storage_options' instead.
+  warnings.warn(
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-3de9d57c1bbb92a0.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-869e772091c64a05.arrow
+03/07/2024 17:22:55 - WARNING - root - Loading data...
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/dataset_dict.py:1241: FutureWarning: 'fs' was is deprecated in favor of 'storage_options' in version 2.8.0 and will be removed in 3.0.0.
+You can remove this warning by passing 'storage_options=fs.storage_options' instead.
+  warnings.warn(
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-53a1b18b3ef786e1.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-6d688289b6675352.arrow
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/table.py:1427: FutureWarning: promote has been superseded by mode='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+/home/abdul.waheed/venv/lib/python3.10/site-packages/datasets/table.py:1427: FutureWarning: promote has been superseded by mode='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-7f36abd84b40116d.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-7ed9ce7a5538efc2.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-748197f970d1b686.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-461b28e1388429a4.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-72a26f944c27b306.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-72a26f944c27b306.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-fe963c0a323d4dfe.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-fe963c0a323d4dfe.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-d8e5c1e151b94ef5.arrow
+03/07/2024 17:22:55 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-d8e5c1e151b94ef5.arrow
+03/07/2024 17:23:09 - INFO - __main__ - ***** Running training *****
+03/07/2024 17:23:09 - INFO - __main__ -   Num examples = 49296.0
+03/07/2024 17:23:09 - INFO - __main__ -   Instantaneous batch size per device = 8
+03/07/2024 17:23:09 - INFO - __main__ -   Gradient accumulation steps = 1
+03/07/2024 17:23:09 - INFO - __main__ -   Total train batch size (w. parallel & distributed) = 8
+03/07/2024 17:23:09 - INFO - __main__ -   Total optimization steps = 6162.0
+No checkpoint found! Training from scratch!
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-22de4590320a2af7.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-a878860d612aad90.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-49a43f85dadab2d0.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-1947cbbba28e4e5e.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-1e8569a721e59567.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-1e8569a721e59567.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-a878860d612aad90.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-dc386a905bac6523.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-dc386a905bac6523.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-f70ef8bef06c01f9.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-03edba438cedc2d4.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-03edba438cedc2d4.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-b10c31ecfb5ea828.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-65ead3bedee1c22f.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-65ead3bedee1c22f.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-e6aef6f9e2564423.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-2a3ad9e8c2c92ce2.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-2a3ad9e8c2c92ce2.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-bc252e35dfc0ca68.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-cc688694290d7caa.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-97f6d221fa991957.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-97f6d221fa991957.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-cc688694290d7caa.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-8c546258d64096d7.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-6fa1b457330278b5.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-ccfe9b4e563060e1.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-ccfe9b4e563060e1.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-eb3e6e92f7159da3.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-eb3e6e92f7159da3.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-3de9d57c1bbb92a0.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-4908ca9cd0ad3adb.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-4d49bc232a94d057.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-4d49bc232a94d057.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-f31380f784ef3bde.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-3de9d57c1bbb92a0.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-869e772091c64a05.arrow
+[2024-03-07 17:23:09,881] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.13.4, git-hash=unknown, git-branch=unknown
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-9a24dd11530c2c5d.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-869e772091c64a05.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-53a1b18b3ef786e1.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-53a1b18b3ef786e1.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-6d688289b6675352.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-6d688289b6675352.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-3daf0244a6a2179c.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-7f36abd84b40116d.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-7ed9ce7a5538efc2.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-7f36abd84b40116d.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-4a929df5105eeafb.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-4a929df5105eeafb.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-70f320deca3fc445.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-748197f970d1b686.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-7ed9ce7a5538efc2.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-461b28e1388429a4.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-c184b102fa8cb6ca.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-748197f970d1b686.arrow
+No checkpoint found! Training from scratch!
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-461b28e1388429a4.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-977eb580a38494b0.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-3474d34e8aef9680.arrow
+No checkpoint found! Training from scratch!
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-0929c686844f75df.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-d6909f92f79d9264.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-3474d34e8aef9680.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-a2811e13945406f3.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-1b254773a677ddf0.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-9eef2f95876254a6.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-1c4e7f3646e400ac.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-1b254773a677ddf0.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-9e1487389cae96ee.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-e6fd055b7eb82e69.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-66e8e144434005af.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-e6fd055b7eb82e69.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-74a5414ca7b33ec1.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-53f71d6f2530b3c7.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-45aad6e37942432b.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-45aad6e37942432b.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-486915e70a737d6d.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-170fa0847b5dce79.arrow
+03/07/2024 17:23:09 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-2e86f530c05a012c.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-2e86f530c05a012c.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-2d2c089efac77c97.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-79059364141784d9.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-d3a55cf9ed3ff155.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-95a992180317ec6d.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-49d415941faa13e6.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-d3a55cf9ed3ff155.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-3447d1060312a1f3.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-8cb83bbd0089dc40.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-c9c75b04d269c867.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-c38150a14daf818f.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-3447d1060312a1f3.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-26842ebb3fe787d5.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-5eb742d83565e2ab.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-66c4fe0357ad785e.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-26842ebb3fe787d5.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-deac77638e2fce47.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-5eb742d83565e2ab.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-deac77638e2fce47.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-c58f54a4e487e9a3.arrow
+No checkpoint found! Training from scratch!
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-d41e6ecaf765a8d1.arrow
+No checkpoint found! Training from scratch!
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-b48874304eeb60b0.arrow
+No checkpoint found! Training from scratch!
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-b5a496ef93af5bc6.arrow
+No checkpoint found! Training from scratch!
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-0778f759954e0383.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-407e8b8c8bee9186.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-fd1065df35e940fb.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/train/cache-dfc098db1b8f9fd3.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/test/cache-c8ffa44045e28cde.arrow
+03/07/2024 17:23:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/beegfs/abdul.waheed/finetuning_hubert_llama/librispeech-hubert-discrete-tokens/validation/cache-2b7aef00f6194283.arrow
+No checkpoint found! Training from scratch!
+[2024-03-07 17:23:28,520] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+Using /home/abdul.waheed/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+Using /home/abdul.waheed/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /home/abdul.waheed/.cache/torch_extensions/py310_cu117/cpu_adam/build.ninja...
+Building extension module cpu_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+Using /home/abdul.waheed/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+ninja: no work to do.
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.5205225944519043 secondsUsing /home/abdul.waheed/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+
+Using /home/abdul.waheed/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+Using /home/abdul.waheed/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+Using /home/abdul.waheed/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+Using /home/abdul.waheed/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /home/abdul.waheed/.cache/torch_extensions/py310_cu117/cpu_adam/build.ninja...
+Building extension module cpu_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.659161329269409 seconds
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.699337959289551 seconds
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.7337474822998047 seconds
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.7327160835266113 seconds
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.7245934009552 seconds
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.7482221126556396 seconds
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.757584571838379 seconds
+Adam Optimizer #0 is created with AVX2 arithmetic capability.
+Config: alpha=0.000050, betas=(0.900000, 0.999000), weight_decay=0.000000, adam_w=1
+[2024-03-07 17:23:34,305] [INFO] [logging.py:96:log_dist] [Rank 0] Using DeepSpeed Optimizer param name adamw as basic optimizer
+[2024-03-07 17:23:34,305] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2024-03-07 17:23:34,315] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = DeepSpeedCPUAdam
+[2024-03-07 17:23:34,315] [INFO] [utils.py:56:is_zero_supported_optimizer] Checking ZeRO support for optimizer=DeepSpeedCPUAdam type=<class 'deepspeed.ops.adam.cpu_adam.DeepSpeedCPUAdam'>
+[2024-03-07 17:23:34,315] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.float32 ZeRO stage 2 optimizer
+[2024-03-07 17:23:34,315] [INFO] [stage_1_and_2.py:149:__init__] Reduce bucket size 200000000
+[2024-03-07 17:23:34,315] [INFO] [stage_1_and_2.py:150:__init__] Allgather bucket size 200000000
+[2024-03-07 17:23:34,315] [INFO] [stage_1_and_2.py:151:__init__] CPU Offload: True
+[2024-03-07 17:23:34,315] [INFO] [stage_1_and_2.py:152:__init__] Round robin gradient partitioning: False
+[2024-03-07 17:25:01,045] [INFO] [utils.py:800:see_memory_usage] Before initializing optimizer states
+[2024-03-07 17:25:01,046] [INFO] [utils.py:801:see_memory_usage] MA 25.72 GB         Max_MA 25.72 GB         CA 25.73 GB         Max_CA 26 GB 
+[2024-03-07 17:25:01,046] [INFO] [utils.py:808:see_memory_usage] CPU Virtual Memory:  used = 165.66 GB, percent = 16.4%
+[2024-03-07 17:25:03,104] [INFO] [utils.py:800:see_memory_usage] After initializing optimizer states
+[2024-03-07 17:25:03,105] [INFO] [utils.py:801:see_memory_usage] MA 25.72 GB         Max_MA 25.72 GB         CA 25.73 GB         Max_CA 26 GB 
+[2024-03-07 17:25:03,105] [INFO] [utils.py:808:see_memory_usage] CPU Virtual Memory:  used = 136.0 GB, percent = 13.5%
+[2024-03-07 17:25:03,105] [INFO] [stage_1_and_2.py:539:__init__] optimizer state initialized
+[2024-03-07 17:25:03,241] [INFO] [utils.py:800:see_memory_usage] After initializing ZeRO optimizer
+[2024-03-07 17:25:03,241] [INFO] [utils.py:801:see_memory_usage] MA 25.72 GB         Max_MA 25.72 GB         CA 25.73 GB         Max_CA 26 GB 
+[2024-03-07 17:25:03,242] [INFO] [utils.py:808:see_memory_usage] CPU Virtual Memory:  used = 136.0 GB, percent = 13.5%
+[2024-03-07 17:25:03,243] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = adamw
+[2024-03-07 17:25:03,243] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using configured LR scheduler = WarmupLR
+[2024-03-07 17:25:03,243] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = <deepspeed.runtime.lr_schedules.WarmupLR object at 0x7f01b6f74970>
+[2024-03-07 17:25:03,243] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[5e-05], mom=[[0.9, 0.999]]
+[2024-03-07 17:25:03,244] [INFO] [config.py:996:print] DeepSpeedEngine configuration:
+[2024-03-07 17:25:03,244] [INFO] [config.py:1000:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2024-03-07 17:25:03,244] [INFO] [config.py:1000:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2024-03-07 17:25:03,244] [INFO] [config.py:1000:print]   amp_enabled .................. False
+[2024-03-07 17:25:03,244] [INFO] [config.py:1000:print]   amp_params ................... False
+[2024-03-07 17:25:03,244] [INFO] [config.py:1000:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2024-03-07 17:25:03,244] [INFO] [config.py:1000:print]   bfloat16_enabled ............. False
+[2024-03-07 17:25:03,244] [INFO] [config.py:1000:print]   bfloat16_immediate_grad_update  False
+[2024-03-07 17:25:03,244] [INFO] [config.py:1000:print]   checkpoint_parallel_write_pipeline  False
+[2024-03-07 17:25:03,244] [INFO] [config.py:1000:print]   checkpoint_tag_validation_enabled  True
+[2024-03-07 17:25:03,244] [INFO] [config.py:1000:print]   checkpoint_tag_validation_fail  False
+[2024-03-07 17:25:03,244] [INFO] [config.py:1000:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7f01e8435270>
+[2024-03-07 17:25:03,244] [INFO] [config.py:1000:print]   communication_data_type ...... None
+[2024-03-07 17:25:03,244] [INFO] [config.py:1000:print]   compile_config ............... enabled=False backend='inductor' kwargs={}
+[2024-03-07 17:25:03,244] [INFO] [config.py:1000:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2024-03-07 17:25:03,244] [INFO] [config.py:1000:print]   curriculum_enabled_legacy .... False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   curriculum_params_legacy ..... False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   data_efficiency_enabled ...... False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   dataloader_drop_last ......... False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   disable_allgather ............ False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   dump_state ................... False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   dynamic_loss_scale_args ...... None
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   eigenvalue_enabled ........... False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   eigenvalue_gas_boundary_resolution  1
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   eigenvalue_layer_num ......... 0
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   eigenvalue_max_iter .......... 100
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   eigenvalue_stability ......... 1e-06
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   eigenvalue_tol ............... 0.01
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   eigenvalue_verbose ........... False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   elasticity_enabled ........... False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   fp16_auto_cast ............... None
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   fp16_enabled ................. False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   fp16_master_weights_and_gradients  False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   global_rank .................. 0
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   grad_accum_dtype ............. None
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   gradient_accumulation_steps .. 1
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   gradient_clipping ............ 1.0
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   gradient_predivide_factor .... 1.0
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   graph_harvesting ............. False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   initial_dynamic_scale ........ 65536
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   load_universal_checkpoint .... False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   loss_scale ................... 0
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   memory_breakdown ............. False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   mics_hierarchial_params_gather  False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   mics_shard_size .............. -1
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   optimizer_legacy_fusion ...... False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   optimizer_name ............... adamw
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   optimizer_params ............. {'lr': 5e-05, 'betas': [0.9, 0.999], 'eps': 1e-08, 'weight_decay': 0.0}
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   pld_enabled .................. False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   pld_params ................... False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   prescale_gradients ........... False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   scheduler_name ............... WarmupLR
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   scheduler_params ............. {'warmup_min_lr': 0, 'warmup_max_lr': 5e-05, 'warmup_num_steps': 0}
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   seq_parallel_communication_data_type  torch.float32
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   sparse_attention ............. None
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   sparse_gradients_enabled ..... False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   steps_per_print .............. inf
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   train_batch_size ............. 64
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   train_micro_batch_size_per_gpu  8
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   use_data_before_expert_parallel_  False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   use_node_local_storage ....... False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   wall_clock_breakdown ......... False
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   weight_quantization_config ... None
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   world_size ................... 8
+[2024-03-07 17:25:03,245] [INFO] [config.py:1000:print]   zero_allow_untested_optimizer  False
+[2024-03-07 17:25:03,246] [INFO] [config.py:1000:print]   zero_config .................. stage=2 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=200000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=200000000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='cpu', nvme_path=None, buffer_count=4, pin_memory=True, pipeline=False, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2024-03-07 17:25:03,246] [INFO] [config.py:1000:print]   zero_enabled ................. True
+[2024-03-07 17:25:03,246] [INFO] [config.py:1000:print]   zero_force_ds_cpu_optimizer .. True
+[2024-03-07 17:25:03,246] [INFO] [config.py:1000:print]   zero_optimization_stage ...... 2
+[2024-03-07 17:25:03,246] [INFO] [config.py:986:print_user_config]   json = {
+    "fp16": {
+        "enabled": false, 
+        "loss_scale": 0, 
+        "loss_scale_window": 1000, 
+        "initial_scale_power": 16, 
+        "hysteresis": 2, 
+        "min_loss_scale": 1
+    }, 
+    "optimizer": {
+        "type": "AdamW", 
+        "params": {
+            "lr": 5e-05, 
+            "betas": [0.9, 0.999], 
+            "eps": 1e-08, 
+            "weight_decay": 0.0
+        }
+    }, 
+    "scheduler": {
+        "type": "WarmupLR", 
+        "params": {
+            "warmup_min_lr": 0, 
+            "warmup_max_lr": 5e-05, 
+            "warmup_num_steps": 0
+        }
+    }, 
+    "zero_optimization": {
+        "stage": 2, 
+        "offload_optimizer": {
+            "device": "cpu", 
+            "pin_memory": true
+        }, 
+        "allgather_partitions": true, 
+        "allgather_bucket_size": 2.000000e+08, 
+        "overlap_comm": true, 
+        "reduce_scatter": true, 
+        "reduce_bucket_size": 2.000000e+08, 
+        "contiguous_gradients": true
+    }, 
+    "gradient_accumulation_steps": 1, 
+    "gradient_clipping": 1.0, 
+    "steps_per_print": inf, 
+    "train_batch_size": 64, 
+    "train_micro_batch_size_per_gpu": 8, 
+    "wall_clock_breakdown": false, 
+    "bf16": {
+        "enabled": false
+    }
+}
+[INFO|trainer.py:1723] 2024-03-07 17:25:03,246 >> ***** Running training *****
+[INFO|trainer.py:1724] 2024-03-07 17:25:03,246 >>   Num examples = 16,434
+[INFO|trainer.py:1725] 2024-03-07 17:25:03,246 >>   Num Epochs = 3
+[INFO|trainer.py:1726] 2024-03-07 17:25:03,246 >>   Instantaneous batch size per device = 8
+[INFO|trainer.py:1729] 2024-03-07 17:25:03,246 >>   Total train batch size (w. parallel, distributed & accumulation) = 64
+[INFO|trainer.py:1730] 2024-03-07 17:25:03,246 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:1731] 2024-03-07 17:25:03,246 >>   Total optimization steps = 771
+[INFO|trainer.py:1732] 2024-03-07 17:25:03,247 >>   Number of trainable parameters = 6,738,415,616
+  0%|          | 0/771 [00:00<?, ?it/s]  0%|          | 1/771 [01:16<16:26:27, 76.87s/it]  0%|          | 2/771 [02:14<14:02:12, 65.71s/it]  0%|          | 3/771 [03:13<13:18:36, 62.39s/it]  1%|          | 4/771 [04:11<12:54:24, 60.58s/it]  1%|          | 5/771 [05:09<12:41:44, 59.67s/it]  1%|          | 6/771 [06:07<12:33:32, 59.10s/it]  1%|          | 7/771 [07:05<12:27:58, 58.74s/it]  1%|          | 8/771 [08:03<12:24:29, 58.54s/it]  1%|          | 9/771 [09:01<12:20:50, 58.33s/it]  1%|▏         | 10/771 [09:59<12:19:14, 58.28s/it]  1%|▏         | 11/771 [10:57<12:17:17, 58.21s/it]  2%|▏         | 12/771 [11:55<12:17:37, 58.31s/it]  2%|▏         | 13/771 [12:53<12:14:20, 58.13s/it]  2%|▏         | 14/771 [13:51<12:12:20, 58.05s/it]  2%|▏         | 15/771 [14:49<12:11:20, 58.04s/it]  2%|▏         | 16/771 [15:47<12:09:52, 58.00s/it]  2%|▏         | 17/771 [16:45<12:09:48, 58.07s/it]  2%|▏         | 18/771 [17:43<12:08:13, 58.03s/it]  2%|▏         | 19/771 [18:41<12:07:32, 58.05s/it]  3%|▎         | 20/771 [19:39<12:06:52, 58.07s/it]  3%|▎         | 21/771 [20:37<12:05:00, 58.00s/it]  3%|▎         | 22/771 [21:35<12:03:53, 57.99s/it]  3%|▎         | 23/771 [22:33<12:02:43, 57.97s/it]  3%|▎         | 24/771 [23:31<12:00:42, 57.89s/it]  3%|▎         | 25/771 [24:28<11:58:45, 57.81s/it]  3%|▎         | 26/771 [25:26<11:57:35, 57.79s/it]  4%|▎         | 27/771 [26:24<11:59:07, 57.99s/it]  4%|▎         | 28/771 [27:22<11:57:49, 57.97s/it]  4%|▍         | 29/771 [28:20<11:57:04, 57.98s/it]  4%|▍         | 30/771 [29:19<11:56:50, 58.04s/it]  4%|▍         | 31/771 [30:17<11:55:54, 58.05s/it]  4%|▍         | 32/771 [31:14<11:54:14, 57.99s/it]  4%|▍         | 33/771 [32:13<11:53:42, 58.03s/it]  4%|▍         | 34/771 [33:11<11:53:34, 58.09s/it]  5%|▍         | 35/771 [34:09<11:52:14, 58.06s/it]  5%|▍         | 36/771 [35:07<11:51:35, 58.09s/it]  5%|▍         | 37/771 [36:05<11:50:24, 58.07s/it]  5%|▍         | 38/771 [37:03<11:49:50, 58.10s/it]  5%|▌         | 39/771 [38:01<11:48:58, 58.11s/it]  5%|▌         | 40/771 [38:59<11:45:11, 57.88s/it]  5%|▌         | 41/771 [39:57<11:44:13, 57.88s/it]  5%|▌         | 42/771 [40:55<11:44:13, 57.96s/it]  6%|▌         | 43/771 [41:53<11:44:01, 58.02s/it]  6%|▌         | 44/771 [42:51<11:43:38, 58.07s/it]  6%|▌         | 45/771 [43:49<11:43:40, 58.15s/it]  6%|▌         | 46/771 [44:47<11:41:20, 58.04s/it]  6%|▌         | 47/771 [45:45<11:39:32, 57.97s/it]  6%|▌         | 48/771 [46:43<11:38:45, 57.99s/it]  6%|▋         | 49/771 [47:41<11:37:56, 58.00s/it]  6%|▋         | 50/771 [48:39<11:37:17, 58.03s/it]  7%|▋         | 51/771 [49:38<11:37:53, 58.16s/it]  7%|▋         | 52/771 [50:36<11:36:31, 58.12s/it]  7%|▋         | 53/771 [51:34<11:35:10, 58.09s/it]  7%|▋         | 54/771 [52:31<11:30:48, 57.81s/it]  7%|▋         | 55/771 [53:28<11:29:21, 57.77s/it]  7%|▋         | 56/771 [54:27<11:29:23, 57.85s/it]  7%|▋         | 57/771 [55:25<11:29:39, 57.95s/it]  8%|▊         | 58/771 [56:23<11:29:07, 57.99s/it]  8%|▊         | 59/771 [57:21<11:28:55, 58.06s/it]  8%|▊         | 60/771 [58:19<11:26:44, 57.95s/it]  8%|▊         | 61/771 [59:16<11:24:53, 57.88s/it]  8%|▊         | 62/771 [1:00:15<11:25:21, 58.00s/it]  8%|▊         | 63/771 [1:01:13<11:24:15, 57.99s/it]  8%|▊         | 64/771 [1:02:11<11:22:54, 57.96s/it]  8%|▊         | 65/771 [1:03:09<11:22:13, 57.98s/it]  9%|▊         | 66/771 [1:04:06<11:20:18, 57.90s/it]  9%|▊         | 67/771 [1:05:04<11:20:19, 57.98s/it]  9%|▉         | 68/771 [1:06:02<11:19:24, 57.99s/it]  9%|▉         | 69/771 [1:07:01<11:19:08, 58.05s/it]  9%|▉         | 70/771 [1:07:59<11:18:22, 58.06s/it]  9%|▉         | 71/771 [1:08:57<11:18:06, 58.12s/it]  9%|▉         | 72/771 [1:09:55<11:16:34, 58.07s/it]  9%|▉         | 73/771 [1:10:53<11:14:25, 57.97s/it] 10%|▉         | 74/771 [1:11:51<11:13:08, 57.95s/it] 10%|▉         | 75/771 [1:12:49<11:13:08, 58.03s/it] 10%|▉         | 76/771 [1:13:47<11:13:09, 58.11s/it] 10%|▉         | 77/771 [1:14:45<11:10:41, 57.99s/it] 10%|█         | 78/771 [1:15:43<11:09:47, 57.99s/it] 10%|█         | 79/771 [1:16:41<11:09:35, 58.06s/it] 10%|█         | 80/771 [1:17:39<11:08:36, 58.06s/it] 11%|█         | 81/771 [1:18:37<11:07:16, 58.02s/it] 11%|█         | 82/771 [1:19:35<11:06:09, 58.01s/it] 11%|█         | 83/771 [1:20:33<11:05:42, 58.06s/it] 11%|█         | 84/771 [1:21:31<11:02:14, 57.84s/it] 11%|█         | 85/771 [1:22:29<11:01:48, 57.88s/it] 11%|█         | 86/771 [1:23:27<11:01:24, 57.93s/it] 11%|█▏        | 87/771 [1:24:24<11:00:20, 57.92s/it] 11%|█▏        | 88/771 [1:25:22<10:59:34, 57.94s/it] 12%|█▏        | 89/771 [1:26:20<10:58:27, 57.93s/it] 12%|█▏        | 90/771 [1:27:18<10:57:56, 57.97s/it] 12%|█▏        | 91/771 [1:28:17<10:57:39, 58.03s/it] 12%|█▏        | 92/771 [1:29:15<10:56:48, 58.04s/it] 12%|█▏        | 93/771 [1:30:12<10:54:35, 57.93s/it] 12%|█▏        | 94/771 [1:31:10<10:54:18, 57.99s/it] 12%|█▏        | 95/771 [1:32:09<10:53:58, 58.05s/it] 12%|█▏        | 96/771 [1:33:06<10:52:18, 57.98s/it] 13%|█▎        | 97/771 [1:34:05<10:51:46, 58.02s/it] 13%|█▎        | 98/771 [1:35:03<10:51:40, 58.10s/it] 13%|█▎        | 99/771 [1:36:01<10:50:21, 58.07s/it] 13%|█▎        | 100/771 [1:36:59<10:49:33, 58.08s/it][INFO|trainer.py:2881] 2024-03-07 19:03:39,204 >> Saving model checkpoint to outputs/Llama-2-7b-hf/checkpoint-100
+[INFO|configuration_utils.py:461] 2024-03-07 19:03:39,231 >> Configuration saved in outputs/Llama-2-7b-hf/checkpoint-100/config.json
+[INFO|configuration_utils.py:564] 2024-03-07 19:03:39,251 >> Configuration saved in outputs/Llama-2-7b-hf/checkpoint-100/generation_config.json
+[INFO|modeling_utils.py:2201] 2024-03-07 19:04:09,768 >> The model is bigger than the maximum size per checkpoint (5GB) and is going to be split in 6 checkpoint shards. You can find where each parameters has been saved in the index located at outputs/Llama-2-7b-hf/checkpoint-100/model.safetensors.index.json.
+[INFO|tokenization_utils_base.py:2428] 2024-03-07 19:04:09,771 >> tokenizer config file saved in outputs/Llama-2-7b-hf/checkpoint-100/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2437] 2024-03-07 19:04:09,775 >> Special tokens file saved in outputs/Llama-2-7b-hf/checkpoint-100/special_tokens_map.json
+[2024-03-07 19:04:10,413] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint global_step100 is about to be saved!
+/home/abdul.waheed/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1802: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/abdul.waheed/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1802: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/abdul.waheed/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1802: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/abdul.waheed/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1802: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/abdul.waheed/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1802: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/abdul.waheed/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1802: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/abdul.waheed/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1802: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/abdul.waheed/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1802: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+[2024-03-07 19:04:10,940] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: outputs/Llama-2-7b-hf/checkpoint-100/global_step100/mp_rank_00_model_states.pt
+[2024-03-07 19:04:10,940] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving outputs/Llama-2-7b-hf/checkpoint-100/global_step100/mp_rank_00_model_states.pt...
+[2024-03-07 19:04:54,591] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved outputs/Llama-2-7b-hf/checkpoint-100/global_step100/mp_rank_00_model_states.pt.
+[2024-03-07 19:04:54,595] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving outputs/Llama-2-7b-hf/checkpoint-100/global_step100/zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-03-07 19:06:05,979] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved outputs/Llama-2-7b-hf/checkpoint-100/global_step100/zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-03-07 19:06:06,325] [INFO] [engine.py:3488:_save_zero_checkpoint] zero checkpoint saved outputs/Llama-2-7b-hf/checkpoint-100/global_step100/zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-03-07 19:06:06,325] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step100 is ready now!
+ 13%|█▎        | 101/771 [1:42:01<24:24:50, 131.18s/it] 13%|█▎        | 102/771 [1:42:59<20:18:41, 109.30s/it] 13%|█▎        | 103/771 [1:43:57<17:25:02, 93.87s/it]  13%|█▎        | 104/771 [1:44:55<15:24:53, 83.20s/it] 14%|█▎        | 105/771 [1:45:53<13:59:16, 75.61s/it] 14%|█▎        | 106/771 [1:46:51<13:00:39, 70.44s/it] 14%|█▍        | 107/771 [1:47:49<12:18:16, 66.71s/it] 14%|█▍        | 108/771 [1:48:47<11:48:27, 64.11s/it] 14%|█▍        | 109/771 [1:49:46<11:27:24, 62.30s/it] 14%|█▍        | 110/771 [1:50:44<11:12:21, 61.03s/it] 14%|█▍        | 111/771 [1:51:42<11:01:09, 60.11s/it] 15%|█▍        | 112/771 [1:52:39<10:52:52, 59.44s/it] 15%|█▍        | 113/771 [1:53:37<10:46:47, 58.98s/it] 15%|█▍        | 114/771 [1:54:35<10:42:41, 58.69s/it] 15%|█▍        | 115/771 [1:55:33<10:39:01, 58.45s/it] 15%|█▌        | 116/771 [1:56:31<10:35:35, 58.22s/it] 15%|█▌        | 117/771 [1:57:29<10:34:58, 58.26s/it] 15%|█▌        | 118/771 [1:58:27<10:33:10, 58.18s/it] 15%|█▌        | 119/771 [1:59:25<10:31:33, 58.12s/it] 16%|█▌        | 120/771 [2:00:23<10:28:46, 57.95s/it] 16%|█▌        | 121/771 [2:01:21<10:27:49, 57.95s/it] 16%|█▌        | 122/771 [2:02:19<10:27:51, 58.04s/it] 16%|█▌        | 123/771 [2:03:17<10:26:47, 58.04s/it] 16%|█▌        | 124/771 [2:04:15<10:26:08, 58.07s/it] 16%|█▌        | 125/771 [2:05:13<10:24:19, 57.99s/it] 16%|█▋        | 126/771 [2:06:11<10:22:30, 57.91s/it] 16%|█▋        | 127/771 [2:07:08<10:21:14, 57.88s/it] 17%|█▋        | 128/771 [2:08:07<10:20:49, 57.93s/it] 17%|█▋        | 129/771 [2:09:05<10:20:36, 58.00s/it] 17%|█▋        | 130/771 [2:10:03<10:19:11, 57.96s/it] 17%|█▋        | 131/771 [2:11:01<10:20:21, 58.16s/it] 17%|█▋        | 132/771 [2:11:59<10:18:53, 58.11s/it] 17%|█▋        | 133/771 [2:12:57<10:17:57, 58.12s/it] 17%|█▋        | 134/771 [2:13:55<10:16:37, 58.08s/it] 18%|█▊        | 135/771 [2:14:53<10:15:42, 58.09s/it] 18%|█▊        | 136/771 [2:15:51<10:14:12, 58.04s/it] 18%|█▊        | 137/771 [2:16:49<10:13:21, 58.05s/it] 18%|█▊        | 138/771 [2:17:48<10:12:35, 58.07s/it] 18%|█▊        | 139/771 [2:18:45<10:11:07, 58.02s/it] 18%|█▊        | 140/771 [2:19:43<10:08:26, 57.85s/it] 18%|█▊        | 141/771 [2:20:41<10:08:02, 57.91s/it] 18%|█▊        | 142/771 [2:21:39<10:07:42, 57.97s/it] 19%|█▊        | 143/771 [2:22:37<10:07:24, 58.03s/it] 19%|█▊        | 144/771 [2:23:35<10:05:50, 57.97s/it] 19%|█▉        | 145/771 [2:24:33<10:04:53, 57.98s/it] 19%|█▉        | 146/771 [2:25:31<10:03:56, 57.98s/it] 19%|█▉        | 147/771 [2:26:29<10:02:59, 57.98s/it] 19%|█▉        | 148/771 [2:27:27<10:02:01, 57.98s/it] 19%|█▉        | 149/771 [2:28:25<10:01:49, 58.05s/it] 19%|█▉        | 150/771 [2:29:24<10:01:47, 58.14s/it] 20%|█▉        | 151/771 [2:30:21<9:59:55, 58.06s/it]  20%|█▉        | 152/771 [2:31:20<9:59:21, 58.10s/it] 20%|█▉        | 153/771 [2:32:17<9:57:40, 58.03s/it] 20%|█▉        | 154/771 [2:33:16<9:57:34, 58.11s/it] 20%|██        | 155/771 [2:34:14<9:56:39, 58.12s/it] 20%|██        | 156/771 [2:35:11<9:53:34, 57.91s/it] 20%|██        | 157/771 [2:36:10<9:53:23, 57.99s/it] 20%|██        | 158/771 [2:37:07<9:51:38, 57.91s/it] 21%|██        | 159/771 [2:38:05<9:50:43, 57.91s/it] 21%|██        | 160/771 [2:39:03<9:49:48, 57.92s/it] 21%|██        | 161/771 [2:40:01<9:49:28, 57.98s/it] 21%|██        | 162/771 [2:40:59<9:47:56, 57.93s/it] 21%|██        | 163/771 [2:41:57<9:47:25, 57.97s/it] 21%|██▏       | 164/771 [2:42:55<9:46:25, 57.97s/it] 21%|██▏       | 165/771 [2:43:53<9:45:43, 57.99s/it] 22%|██▏       | 166/771 [2:44:51<9:44:40, 57.98s/it] 22%|██▏       | 167/771 [2:45:49<9:44:55, 58.11s/it] 22%|██▏       | 168/771 [2:46:47<9:43:38, 58.07s/it] 22%|██▏       | 169/771 [2:47:45<9:42:11, 58.02s/it] 22%|██▏       | 170/771 [2:48:43<9:40:32, 57.96s/it] 22%|██▏       | 171/771 [2:49:41<9:40:07, 58.01s/it] 22%|██▏       | 172/771 [2:50:39<9:38:48, 57.98s/it] 22%|██▏       | 173/771 [2:51:37<9:37:24, 57.93s/it] 23%|██▎       | 174/771 [2:52:35<9:36:48, 57.97s/it] 23%|██▎       | 175/771 [2:53:33<9:35:14, 57.91s/it] 23%|██▎       | 176/771 [2:54:31<9:34:53, 57.97s/it] 23%|██▎       | 177/771 [2:55:29<9:33:51, 57.97s/it] 23%|██▎       | 178/771 [2:56:27<9:32:19, 57.91s/it] 23%|██▎       | 179/771 [2:57:24<9:29:12, 57.69s/it] 23%|██▎       | 180/771 [2:58:22<9:28:06, 57.68s/it] 23%|██▎       | 181/771 [2:59:20<9:28:27, 57.81s/it] 24%|██▎       | 182/771 [3:00:17<9:27:10, 57.78s/it] 24%|██▎       | 183/771 [3:01:15<9:26:05, 57.77s/it] 24%|██▍       | 184/771 [3:02:13<9:26:08, 57.87s/it] 24%|██▍       | 185/771 [3:03:11<9:25:44, 57.93s/it] 24%|██▍       | 186/771 [3:04:09<9:25:37, 58.01s/it] 24%|██▍       | 187/771 [3:05:08<9:25:04, 58.06s/it] 24%|██▍       | 188/771 [3:06:05<9:23:16, 57.97s/it] 25%|██▍       | 189/771 [3:07:03<9:21:27, 57.88s/it] 25%|██▍       | 190/771 [3:08:01<9:20:10, 57.85s/it] 25%|██▍       | 191/771 [3:08:59<9:18:39, 57.79s/it] 25%|██▍       | 192/771 [3:09:57<9:18:51, 57.91s/it] 25%|██▌       | 193/771 [3:10:55<9:18:16, 57.95s/it] 25%|██▌       | 194/771 [3:11:53<9:17:58, 58.02s/it] 25%|██▌       | 195/771 [3:12:51<9:17:03, 58.03s/it] 25%|██▌       | 196/771 [3:13:49<9:16:23, 58.06s/it] 26%|██▌       | 197/771 [3:14:47<9:15:02, 58.02s/it] 26%|██▌       | 198/771 [3:15:45<9:13:37, 57.97s/it] 26%|██▌       | 199/771 [3:16:43<9:11:57, 57.90s/it] 26%|██▌       | 200/771 [3:17:41<9:11:56, 58.00s/it][INFO|trainer.py:2881] 2024-03-07 20:44:38,943 >> Saving model checkpoint to outputs/Llama-2-7b-hf/checkpoint-200
+[INFO|configuration_utils.py:461] 2024-03-07 20:44:39,460 >> Configuration saved in outputs/Llama-2-7b-hf/checkpoint-200/config.json
+[INFO|configuration_utils.py:564] 2024-03-07 20:44:39,464 >> Configuration saved in outputs/Llama-2-7b-hf/checkpoint-200/generation_config.json
+[INFO|modeling_utils.py:2201] 2024-03-07 20:45:09,329 >> The model is bigger than the maximum size per checkpoint (5GB) and is going to be split in 6 checkpoint shards. You can find where each parameters has been saved in the index located at outputs/Llama-2-7b-hf/checkpoint-200/model.safetensors.index.json.
+[INFO|tokenization_utils_base.py:2428] 2024-03-07 20:45:09,332 >> tokenizer config file saved in outputs/Llama-2-7b-hf/checkpoint-200/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2437] 2024-03-07 20:45:09,334 >> Special tokens file saved in outputs/Llama-2-7b-hf/checkpoint-200/special_tokens_map.json
+[2024-03-07 20:45:09,910] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint global_step200 is about to be saved!
+/home/abdul.waheed/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1802: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+[2024-03-07 20:45:09,918] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: outputs/Llama-2-7b-hf/checkpoint-200/global_step200/mp_rank_00_model_states.pt
+[2024-03-07 20:45:09,918] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving outputs/Llama-2-7b-hf/checkpoint-200/global_step200/mp_rank_00_model_states.pt...
+[2024-03-07 20:45:50,222] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved outputs/Llama-2-7b-hf/checkpoint-200/global_step200/mp_rank_00_model_states.pt.
+[2024-03-07 20:45:50,226] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving outputs/Llama-2-7b-hf/checkpoint-200/global_step200/zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-03-07 20:47:08,576] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved outputs/Llama-2-7b-hf/checkpoint-200/global_step200/zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-03-07 20:47:08,718] [INFO] [engine.py:3488:_save_zero_checkpoint] zero checkpoint saved outputs/Llama-2-7b-hf/checkpoint-200/global_step200/zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-03-07 20:47:08,718] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step200 is ready now!
+ 26%|██▌       | 201/771 [3:23:04<21:47:04, 137.59s/it] 26%|██▌       | 202/771 [3:24:02<17:58:01, 113.68s/it] 26%|██▋       | 203/771 [3:25:00<15:18:26, 97.02s/it]  26%|██▋       | 204/771 [3:25:58<13:26:44, 85.37s/it] 27%|██▋       | 205/771 [3:26:57<12:08:45, 77.25s/it] 27%|██▋       | 206/771 [3:27:55<11:13:56, 71.57s/it] 27%|██▋       | 207/771 [3:28:52<10:32:44, 67.31s/it] 27%|██▋       | 208/771 [3:29:51<10:06:27, 64.63s/it] 27%|██▋       | 209/771 [3:30:49<9:46:43, 62.64s/it]  27%|██▋       | 210/771 [3:31:47<9:32:42, 61.25s/it] 27%|██▋       | 211/771 [3:32:45<9:22:55, 60.31s/it] 27%|██▋       | 212/771 [3:33:43<9:14:58, 59.57s/it] 28%|██▊       | 213/771 [3:34:41<9:10:12, 59.16s/it] 28%|██▊       | 214/771 [3:35:39<9:05:16, 58.74s/it] 28%|██▊       | 215/771 [3:36:36<9:01:32, 58.44s/it] 28%|██▊       | 216/771 [3:37:34<8:58:57, 58.27s/it] 28%|██▊       | 217/771 [3:38:33<8:57:55, 58.26s/it] 28%|██▊       | 218/771 [3:39:31<8:56:25, 58.20s/it] 28%|██▊       | 219/771 [3:40:28<8:54:31, 58.10s/it] 29%|██▊       | 220/771 [3:41:27<8:53:37, 58.11s/it] 29%|██▊       | 221/771 [3:42:25<8:52:26, 58.08s/it] 29%|██▉       | 222/771 [3:43:23<8:51:09, 58.05s/it] 29%|██▉       | 223/771 [3:44:20<8:49:10, 57.94s/it] 29%|██▉       | 224/771 [3:45:18<8:48:33, 57.98s/it] 29%|██▉       | 225/771 [3:46:17<8:48:10, 58.04s/it] 29%|██▉       | 226/771 [3:47:14<8:46:39, 57.98s/it] 29%|██▉       | 227/771 [3:48:12<8:46:07, 58.03s/it] 30%|██▉       | 228/771 [3:49:10<8:44:53, 58.00s/it] 30%|██▉       | 229/771 [3:50:09<8:44:26, 58.06s/it] 30%|██▉       | 230/771 [3:51:07<8:43:08, 58.02s/it] 30%|██▉       | 231/771 [3:52:05<8:42:31, 58.06s/it] 30%|███       | 232/771 [3:53:03<8:41:53, 58.10s/it] 30%|███       | 233/771 [3:54:01<8:40:10, 58.01s/it] 30%|███       | 234/771 [3:54:58<8:38:15, 57.91s/it] 30%|███       | 235/771 [3:55:56<8:37:20, 57.91s/it] 31%|███       | 236/771 [3:56:54<8:36:46, 57.96s/it] 31%|███       | 237/771 [3:57:52<8:35:10, 57.88s/it] 31%|███       | 238/771 [3:58:49<8:32:41, 57.71s/it] 31%|███       | 239/771 [3:59:47<8:32:03, 57.75s/it] 31%|███       | 240/771 [4:00:45<8:31:10, 57.76s/it] 31%|███▏      | 241/771 [4:01:43<8:30:17, 57.77s/it] 31%|███▏      | 242/771 [4:02:41<8:29:36, 57.80s/it] 32%|███▏      | 243/771 [4:03:39<8:29:35, 57.91s/it] 32%|███▏      | 244/771 [4:04:37<8:28:27, 57.89s/it] 32%|███▏      | 245/771 [4:05:34<8:27:12, 57.86s/it] 32%|███▏      | 246/771 [4:06:32<8:26:19, 57.87s/it] 32%|███▏      | 247/771 [4:07:30<8:25:11, 57.85s/it] 32%|███▏      | 248/771 [4:08:28<8:23:38, 57.78s/it] 32%|███▏      | 249/771 [4:09:26<8:23:31, 57.88s/it] 32%|███▏      | 250/771 [4:10:24<8:23:17, 57.96s/it] 33%|███▎      | 251/771 [4:11:22<8:21:53, 57.91s/it] 33%|███▎      | 252/771 [4:12:20<8:21:25, 57.97s/it] 33%|███▎      | 253/771 [4:13:18<8:20:26, 57.97s/it] 33%|███▎      | 254/771 [4:14:16<8:20:03, 58.03s/it] 33%|███▎      | 255/771 [4:15:14<8:18:56, 58.02s/it] 33%|███▎      | 256/771 [4:16:12<8:17:34, 57.97s/it] 33%|███▎      | 257/771 [4:17:10<8:17:12, 58.04s/it][INFO|trainer.py:3158] 2024-03-07 21:42:13,838 >> ***** Running Evaluation *****
+[INFO|trainer.py:3160] 2024-03-07 21:42:13,838 >>   Num examples = 942
+[INFO|trainer.py:3163] 2024-03-07 21:42:13,838 >>   Batch size = 4
+
+  0%|          | 0/30 [00:00<?, ?it/s][A
+  7%|▋         | 2/30 [00:05<01:16,  2.74s/it][A
+ 10%|█         | 3/30 [00:11<01:47,  3.98s/it][A
+ 13%|█▎        | 4/30 [00:17<02:04,  4.78s/it][A
+ 17%|█▋        | 5/30 [00:23<02:15,  5.44s/it][A
+ 20%|██        | 6/30 [00:30<02:20,  5.84s/it][A
+ 23%|██▎       | 7/30 [00:36<02:12,  5.75s/it][A
+ 27%|██▋       | 8/30 [00:40<01:59,  5.44s/it][A
+ 30%|███       | 9/30 [00:47<02:00,  5.72s/it][A
+ 33%|███▎      | 10/30 [00:53<02:00,  6.01s/it][A
+ 37%|███▋      | 11/30 [01:00<01:57,  6.21s/it][A
+ 40%|████      | 12/30 [01:07<01:53,  6.32s/it][A
+ 43%|████▎     | 13/30 [01:12<01:43,  6.09s/it][A
+ 47%|████▋     | 14/30 [01:19<01:39,  6.24s/it][A
+ 50%|█████     | 15/30 [01:25<01:35,  6.36s/it][A
+ 53%|█████▎    | 16/30 [01:32<01:30,  6.45s/it][A
+ 57%|█████▋    | 17/30 [01:39<01:24,  6.51s/it][A
+ 60%|██████    | 18/30 [01:45<01:18,  6.56s/it][A
+ 63%|██████▎   | 19/30 [01:52<01:12,  6.59s/it][A
+ 67%|██████▋   | 20/30 [01:59<01:05,  6.59s/it][A
+ 70%|███████   | 21/30 [02:04<00:56,  6.33s/it][A
+ 73%|███████▎  | 22/30 [02:11<00:50,  6.34s/it][A
+ 77%|███████▋  | 23/30 [02:17<00:43,  6.21s/it][A
+ 80%|████████  | 24/30 [02:23<00:37,  6.24s/it][A
+ 83%|████████▎ | 25/30 [02:28<00:29,  5.97s/it][A
+ 87%|████████▋ | 26/30 [02:33<00:21,  5.49s/it][A
+ 90%|█████████ | 27/30 [02:38<00:16,  5.53s/it][A
+ 93%|█████████▎| 28/30 [02:44<00:11,  5.71s/it][A
+ 97%|█████████▋| 29/30 [02:50<00:05,  5.59s/it][A
+100%|██████████| 30/30 [02:55<00:00,  5.62s/it][A03/07/2024 21:45:40 - INFO - __main__ - 
+                    Examples.
+                    Ground Truth: he was in a fevered state of mind owing to the blight his wife's action threatened to cast upon his entire future
+                    Prediction: sierpchapter
+ thethe9the9
+9the97111111341811191and was a a veryverish state of mind anding to the factinding of cro hads health had to ru him him whole family lifethethethethethethethethethethethethethethethethethethethethethethethethethehehe''''''''''''''''''''''''''''''''''''''''''''andandandandandandandandand
+                    Ground Truth: he would have to pay her the money which she would now regularly demand or there would be trouble it did not matter what he did
+                    Prediction: sierpchapter
+ thethe9the years9the9the1191111773111111111and was have been be a back same he he had have have receive from he would be trouble he was not seem whether he did he
+        
+        
+                                                     
+                                               [A{'eval_loss': 3.469141960144043, 'eval_wer': '3048.81', 'eval_cer': '4646.84', 'eval_runtime': 206.6042, 'eval_samples_per_second': 4.559, 'eval_steps_per_second': 0.145, 'epoch': 1.0}
+ 33%|███▎      | 257/771 [4:20:37<8:17:12, 58.04s/it]
+100%|██████████| 30/30 [03:23<00:00,  5.62s/it][A
+                                               [A 33%|███▎      | 258/771 [4:21:36<17:08:35, 120.30s/it] 34%|███▎      | 259/771 [4:22:34<14:27:06, 101.61s/it] 34%|███▎      | 260/771 [4:23:31<12:33:11, 88.44s/it]  34%|███▍      | 261/771 [4:24:29<11:14:16, 79.33s/it] 34%|███▍      | 262/771 [4:25:27<10:18:16, 72.88s/it] 34%|███▍      | 263/771 [4:26:25<9:39:11, 68.41s/it]  34%|███▍      | 264/771 [4:27:23<9:10:58, 65.20s/it] 34%|███▍      | 265/771 [4:28:21<8:51:53, 63.07s/it] 35%|███▍      | 266/771 [4:29:19<8:38:41, 61.63s/it] 35%|███▍      | 267/771 [4:30:17<8:28:09, 60.50s/it] 35%|███▍      | 268/771 [4:31:15<8:20:57, 59.76s/it] 35%|███▍      | 269/771 [4:32:14<8:16:19, 59.32s/it] 35%|███▌      | 270/771 [4:33:12<8:13:08, 59.06s/it] 35%|███▌      | 271/771 [4:34:10<8:09:15, 58.71s/it] 35%|███▌      | 272/771 [4:35:08<8:06:14, 58.47s/it] 35%|███▌      | 273/771 [4:36:06<8:04:52, 58.42s/it] 36%|███▌      | 274/771 [4:37:04<8:02:52, 58.29s/it] 36%|███▌      | 275/771 [4:38:03<8:02:14, 58.34s/it] 36%|███▌      | 276/771 [4:39:01<8:01:02, 58.31s/it] 36%|███▌      | 277/771 [4:39:58<7:58:22, 58.10s/it] 36%|███▌      | 278/771 [4:40:56<7:56:10, 57.95s/it] 36%|███▌      | 279/771 [4:41:54<7:55:14, 57.96s/it] 36%|███▋      | 280/771 [4:42:52<7:54:05, 57.93s/it] 36%|███▋      | 281/771 [4:43:50<7:53:26, 57.97s/it] 37%|███▋      | 282/771 [4:44:48<7:52:38, 57.99s/it] 37%|███▋      | 283/771 [4:45:46<7:52:03, 58.04s/it] 37%|███▋      | 284/771 [4:46:44<7:51:13, 58.06s/it] 37%|███▋      | 285/771 [4:47:42<7:49:12, 57.93s/it] 37%|███▋      | 286/771 [4:48:40<7:49:02, 58.02s/it] 37%|███▋      | 287/771 [4:49:38<7:48:33, 58.09s/it] 37%|███▋      | 288/771 [4:50:36<7:47:15, 58.04s/it] 37%|███▋      | 289/771 [4:51:34<7:46:10, 58.03s/it] 38%|███▊      | 290/771 [4:52:32<7:45:03, 58.01s/it] 38%|███▊      | 291/771 [4:53:30<7:43:58, 58.00s/it] 38%|███▊      | 292/771 [4:54:28<7:43:40, 58.08s/it] 38%|███▊      | 293/771 [4:55:26<7:42:37, 58.07s/it] 38%|███▊      | 294/771 [4:56:24<7:40:54, 57.98s/it] 38%|███▊      | 295/771 [4:57:22<7:39:52, 57.97s/it] 38%|███▊      | 296/771 [4:58:20<7:38:52, 57.96s/it] 39%|███▊      | 297/771 [4:59:18<7:37:37, 57.93s/it] 39%|███▊      | 298/771 [5:00:16<7:37:05, 57.98s/it] 39%|███▉      | 299/771 [5:01:14<7:36:08, 57.98s/it] 39%|███▉      | 300/771 [5:02:12<7:36:11, 58.11s/it][INFO|trainer.py:2881] 2024-03-07 22:28:56,415 >> Saving model checkpoint to outputs/Llama-2-7b-hf/checkpoint-300
+[INFO|configuration_utils.py:461] 2024-03-07 22:28:56,610 >> Configuration saved in outputs/Llama-2-7b-hf/checkpoint-300/config.json
+[INFO|configuration_utils.py:564] 2024-03-07 22:28:56,613 >> Configuration saved in outputs/Llama-2-7b-hf/checkpoint-300/generation_config.json
+[INFO|modeling_utils.py:2201] 2024-03-07 22:29:27,527 >> The model is bigger than the maximum size per checkpoint (5GB) and is going to be split in 6 checkpoint shards. You can find where each parameters has been saved in the index located at outputs/Llama-2-7b-hf/checkpoint-300/model.safetensors.index.json.
+[INFO|tokenization_utils_base.py:2428] 2024-03-07 22:29:27,530 >> tokenizer config file saved in outputs/Llama-2-7b-hf/checkpoint-300/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2437] 2024-03-07 22:29:27,532 >> Special tokens file saved in outputs/Llama-2-7b-hf/checkpoint-300/special_tokens_map.json
+[2024-03-07 22:29:28,128] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint global_step300 is about to be saved!
+/home/abdul.waheed/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1802: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+[2024-03-07 22:29:28,137] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: outputs/Llama-2-7b-hf/checkpoint-300/global_step300/mp_rank_00_model_states.pt
+[2024-03-07 22:29:28,137] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving outputs/Llama-2-7b-hf/checkpoint-300/global_step300/mp_rank_00_model_states.pt...
+[2024-03-07 22:30:11,746] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved outputs/Llama-2-7b-hf/checkpoint-300/global_step300/mp_rank_00_model_states.pt.
+[2024-03-07 22:30:11,751] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving outputs/Llama-2-7b-hf/checkpoint-300/global_step300/zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-03-07 22:31:28,777] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved outputs/Llama-2-7b-hf/checkpoint-300/global_step300/zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-03-07 22:31:29,056] [INFO] [engine.py:3488:_save_zero_checkpoint] zero checkpoint saved outputs/Llama-2-7b-hf/checkpoint-300/global_step300/zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-03-07 22:31:29,056] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step300 is ready now!
+ 39%|███▉      | 301/771 [5:07:25<17:32:14, 134.33s/it] 39%|███▉      | 302/771 [5:08:23<14:30:46, 111.40s/it] 39%|███▉      | 303/771 [5:09:21<12:24:43, 95.48s/it]  39%|███▉      | 304/771 [5:10:19<10:55:44, 84.25s/it] 40%|███▉      | 305/771 [5:11:17<9:53:34, 76.43s/it]  40%|███▉      | 306/771 [5:12:15<9:09:26, 70.89s/it] 40%|███▉      | 307/771 [5:13:13<8:37:58, 66.98s/it] 40%|███▉      | 308/771 [5:14:11<8:15:49, 64.25s/it] 40%|████      | 309/771 [5:15:09<8:00:07, 62.35s/it] 40%|████      | 310/771 [5:16:07<7:49:20, 61.09s/it] 40%|████      | 311/771 [5:17:05<7:41:11, 60.16s/it] 40%|████      | 312/771 [5:18:03<7:35:08, 59.49s/it] 41%|████      | 313/771 [5:19:01<7:30:18, 58.99s/it] 41%|████      | 314/771 [5:19:58<7:26:43, 58.65s/it] 41%|████      | 315/771 [5:20:56<7:23:49, 58.40s/it] 41%|████      | 316/771 [5:21:54<7:22:07, 58.30s/it] 41%|████      | 317/771 [5:22:52<7:20:04, 58.16s/it] 41%|████      | 318/771 [5:23:50<7:19:00, 58.15s/it] 41%|████▏     | 319/771 [5:24:48<7:17:29, 58.07s/it] 42%|████▏     | 320/771 [5:25:46<7:16:51, 58.12s/it] 42%|████▏     | 321/771 [5:26:44<7:15:00, 58.00s/it] 42%|████▏     | 322/771 [5:27:42<7:14:32, 58.07s/it] 42%|████▏     | 323/771 [5:28:40<7:13:26, 58.05s/it] 42%|████▏     | 324/771 [5:29:38<7:11:50, 57.96s/it] 42%|████▏     | 325/771 [5:30:36<7:10:23, 57.90s/it] 42%|████▏     | 326/771 [5:31:34<7:09:27, 57.90s/it] 42%|████▏     | 327/771 [5:32:32<7:10:01, 58.11s/it] 43%|████▎     | 328/771 [5:33:30<7:08:34, 58.05s/it] 43%|████▎     | 329/771 [5:34:28<7:07:43, 58.06s/it] 43%|████▎     | 330/771 [5:35:26<7:06:34, 58.04s/it] 43%|████▎     | 331/771 [5:36:24<7:05:34, 58.03s/it] 43%|████▎     | 332/771 [5:37:23<7:05:29, 58.15s/it] 43%|████▎     | 333/771 [5:38:21<7:04:14, 58.11s/it] 43%|████▎     | 334/771 [5:39:19<7:02:58, 58.07s/it] 43%|████▎     | 335/771 [5:40:16<7:01:01, 57.94s/it] 44%|████▎     | 336/771 [5:41:15<7:00:30, 58.00s/it] 44%|████▎     | 337/771 [5:42:12<6:58:32, 57.86s/it] 44%|████▍     | 338/771 [5:43:11<6:58:42, 58.02s/it] 44%|████▍     | 339/771 [5:44:08<6:56:58, 57.91s/it] 44%|████▍     | 340/771 [5:45:06<6:56:09, 57.93s/it] 44%|████▍     | 341/771 [5:46:04<6:55:43, 58.01s/it] 44%|████▍     | 342/771 [5:47:02<6:54:39, 58.00s/it] 44%|████▍     | 343/771 [5:48:00<6:53:45, 58.00s/it] 45%|████▍     | 344/771 [5:48:58<6:52:29, 57.96s/it] 45%|████▍     | 345/771 [5:49:56<6:51:35, 57.97s/it] 45%|████▍     | 346/771 [5:50:54<6:51:12, 58.05s/it] 45%|████▌     | 347/771 [5:51:52<6:49:22, 57.93s/it] 45%|████▌     | 348/771 [5:52:50<6:47:49, 57.85s/it] 45%|████▌     | 349/771 [5:53:48<6:47:42, 57.97s/it] 45%|████▌     | 350/771 [5:54:46<6:47:15, 58.04s/it] 46%|████▌     | 351/771 [5:55:44<6:46:05, 58.01s/it] 46%|████▌     | 352/771 [5:56:42<6:44:44, 57.96s/it] 46%|████▌     | 353/771 [5:57:40<6:43:31, 57.92s/it] 46%|████▌     | 354/771 [5:58:38<6:42:01, 57.85s/it] 46%|████▌     | 355/771 [5:59:35<6:40:51, 57.82s/it] 46%|████▌     | 356/771 [6:00:33<6:40:16, 57.87s/it] 46%|████▋     | 357/771 [6:01:31<6:38:58, 57.82s/it] 46%|████▋     | 358/771 [6:02:29<6:38:46, 57.93s/it] 47%|████▋     | 359/771 [6:03:27<6:37:30, 57.89s/it] 47%|████▋     | 360/771 [6:04:25<6:37:18, 58.00s/it] 47%|████▋     | 361/771 [6:05:23<6:36:24, 58.01s/it] 47%|████▋     | 362/771 [6:06:21<6:35:42, 58.05s/it] 47%|████▋     | 363/771 [6:07:19<6:34:50, 58.07s/it] 47%|████▋     | 364/771 [6:08:17<6:33:37, 58.03s/it] 47%|████▋     | 365/771 [6:09:15<6:32:18, 57.98s/it] 47%|████▋     | 366/771 [6:10:14<6:31:58, 58.07s/it] 48%|████▊     | 367/771 [6:11:11<6:30:12, 57.95s/it] 48%|████▊     | 368/771 [6:12:09<6:29:30, 57.99s/it] 48%|████▊     | 369/771 [6:13:07<6:28:37, 58.00s/it] 48%|████▊     | 370/771 [6:14:05<6:27:36, 58.00s/it] 48%|████▊     | 371/771 [6:15:04<6:26:57, 58.04s/it] 48%|████▊     | 372/771 [6:16:01<6:25:41, 58.00s/it] 48%|████▊     | 373/771 [6:16:59<6:24:44, 58.00s/it] 49%|████▊     | 374/771 [6:17:58<6:24:03, 58.05s/it] 49%|████▊     | 375/771 [6:18:55<6:22:24, 57.94s/it] 49%|████▉     | 376/771 [6:19:53<6:20:54, 57.86s/it] 49%|████▉     | 377/771 [6:20:51<6:19:46, 57.83s/it] 49%|████▉     | 378/771 [6:21:49<6:19:20, 57.91s/it] 49%|████▉     | 379/771 [6:22:47<6:18:35, 57.95s/it] 49%|████▉     | 380/771 [6:23:45<6:17:58, 58.00s/it] 49%|████▉     | 381/771 [6:24:43<6:17:09, 58.03s/it] 50%|████▉     | 382/771 [6:25:41<6:15:32, 57.92s/it] 50%|████▉     | 383/771 [6:26:39<6:14:29, 57.91s/it] 50%|████▉     | 384/771 [6:27:37<6:14:08, 58.01s/it] 50%|████▉     | 385/771 [6:28:35<6:12:58, 57.97s/it] 50%|█████     | 386/771 [6:29:33<6:12:24, 58.04s/it] 50%|█████     | 387/771 [6:30:31<6:11:06, 57.99s/it] 50%|█████     | 388/771 [6:31:29<6:10:05, 57.98s/it] 50%|█████     | 389/771 [6:32:27<6:09:12, 57.99s/it] 51%|█████     | 390/771 [6:33:25<6:08:19, 58.00s/it] 51%|█████     | 391/771 [6:34:23<6:07:38, 58.05s/it] 51%|█████     | 392/771 [6:35:21<6:05:56, 57.93s/it] 51%|█████     | 393/771 [6:36:18<6:04:36, 57.87s/it] 51%|█████     | 394/771 [6:37:16<6:03:52, 57.91s/it] 51%|█████     | 395/771 [6:38:15<6:03:38, 58.03s/it] 51%|█████▏    | 396/771 [6:39:12<6:01:38, 57.86s/it] 51%|█████▏    | 397/771 [6:40:10<6:00:09, 57.78s/it] 52%|█████▏    | 398/771 [6:41:08<5:59:59, 57.91s/it] 52%|█████▏    | 399/771 [6:42:06<5:59:30, 57.98s/it] 52%|█████▏    | 400/771 [6:43:04<5:58:43, 58.02s/it][INFO|trainer.py:2881] 2024-03-08 00:10:03,450 >> Saving model checkpoint to outputs/Llama-2-7b-hf/checkpoint-400
+[INFO|configuration_utils.py:461] 2024-03-08 00:10:03,962 >> Configuration saved in outputs/Llama-2-7b-hf/checkpoint-400/config.json
+[INFO|configuration_utils.py:564] 2024-03-08 00:10:03,966 >> Configuration saved in outputs/Llama-2-7b-hf/checkpoint-400/generation_config.json
+[INFO|modeling_utils.py:2201] 2024-03-08 00:10:32,969 >> The model is bigger than the maximum size per checkpoint (5GB) and is going to be split in 6 checkpoint shards. You can find where each parameters has been saved in the index located at outputs/Llama-2-7b-hf/checkpoint-400/model.safetensors.index.json.
+[INFO|tokenization_utils_base.py:2428] 2024-03-08 00:10:32,972 >> tokenizer config file saved in outputs/Llama-2-7b-hf/checkpoint-400/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2437] 2024-03-08 00:10:32,974 >> Special tokens file saved in outputs/Llama-2-7b-hf/checkpoint-400/special_tokens_map.json
+[2024-03-08 00:10:33,649] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint global_step400 is about to be saved!
+/home/abdul.waheed/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1802: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+[2024-03-08 00:10:33,658] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: outputs/Llama-2-7b-hf/checkpoint-400/global_step400/mp_rank_00_model_states.pt
+[2024-03-08 00:10:33,658] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving outputs/Llama-2-7b-hf/checkpoint-400/global_step400/mp_rank_00_model_states.pt...
+[2024-03-08 00:11:17,019] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved outputs/Llama-2-7b-hf/checkpoint-400/global_step400/mp_rank_00_model_states.pt.
+[2024-03-08 00:11:17,023] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving outputs/Llama-2-7b-hf/checkpoint-400/global_step400/zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-03-08 00:12:39,644] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved outputs/Llama-2-7b-hf/checkpoint-400/global_step400/zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-03-08 00:12:39,967] [INFO] [engine.py:3488:_save_zero_checkpoint] zero checkpoint saved outputs/Llama-2-7b-hf/checkpoint-400/global_step400/zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-03-08 00:12:39,967] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step400 is ready now!
+ 52%|█████▏    | 401/771 [6:48:35<14:22:11, 139.82s/it] 52%|█████▏    | 402/771 [6:49:33<11:48:54, 115.27s/it] 52%|█████▏    | 403/771 [6:50:31<10:01:40, 98.10s/it]  52%|█████▏    | 404/771 [6:51:29<8:45:58, 85.99s/it]  53%|█████▎    | 405/771 [6:52:27<7:53:30, 77.63s/it] 53%|█████▎    | 406/771 [6:53:24<7:15:44, 71.63s/it] 53%|█████▎    | 407/771 [6:54:22<6:49:33, 67.51s/it] 53%|█████▎    | 408/771 [6:55:21<6:31:45, 64.75s/it] 53%|█████▎    | 409/771 [6:56:18<6:17:50, 62.63s/it] 53%|█████▎    | 410/771 [6:57:17<6:08:58, 61.32s/it] 53%|█████▎    | 411/771 [6:58:15<6:02:19, 60.39s/it] 53%|█████▎    | 412/771 [6:59:13<5:57:12, 59.70s/it] 54%|█████▎    | 413/771 [7:00:11<5:53:02, 59.17s/it] 54%|█████▎    | 414/771 [7:01:09<5:49:38, 58.76s/it] 54%|█████▍    | 415/771 [7:02:07<5:47:11, 58.52s/it] 54%|█████▍    | 416/771 [7:03:05<5:45:25, 58.38s/it] 54%|█████▍    | 417/771 [7:04:02<5:43:12, 58.17s/it] 54%|█████▍    | 418/771 [7:05:01<5:42:38, 58.24s/it] 54%|█████▍    | 419/771 [7:05:59<5:41:07, 58.15s/it] 54%|█████▍    | 420/771 [7:06:57<5:40:07, 58.14s/it] 55%|█████▍    | 421/771 [7:07:55<5:38:37, 58.05s/it] 55%|█████▍    | 422/771 [7:08:53<5:37:36, 58.04s/it] 55%|█████▍    | 423/771 [7:09:50<5:36:16, 57.98s/it] 55%|█████▍    | 424/771 [7:10:48<5:35:20, 57.98s/it] 55%|█████▌    | 425/771 [7:11:46<5:34:28, 58.00s/it] 55%|█████▌    | 426/771 [7:12:44<5:33:24, 57.98s/it] 55%|█████▌    | 427/771 [7:13:42<5:31:55, 57.89s/it] 56%|█████▌    | 428/771 [7:14:40<5:31:37, 58.01s/it] 56%|█████▌    | 429/771 [7:15:38<5:30:27, 57.98s/it] 56%|█████▌    | 430/771 [7:16:36<5:29:43, 58.02s/it] 56%|█████▌    | 431/771 [7:17:34<5:28:37, 57.99s/it] 56%|█████▌    | 432/771 [7:18:32<5:27:30, 57.96s/it] 56%|█████▌    | 433/771 [7:19:30<5:26:16, 57.92s/it] 56%|█████▋    | 434/771 [7:20:28<5:25:11, 57.90s/it] 56%|█████▋    | 435/771 [7:21:26<5:24:22, 57.92s/it] 57%|█████▋    | 436/771 [7:22:24<5:23:58, 58.03s/it] 57%|█████▋    | 437/771 [7:23:22<5:22:56, 58.01s/it] 57%|█████▋    | 438/771 [7:24:20<5:22:03, 58.03s/it] 57%|█████▋    | 439/771 [7:25:18<5:21:02, 58.02s/it] 57%|█████▋    | 440/771 [7:26:16<5:20:29, 58.10s/it] 57%|█████▋    | 441/771 [7:27:14<5:19:16, 58.05s/it] 57%|█████▋    | 442/771 [7:28:12<5:18:14, 58.04s/it] 57%|█████▋    | 443/771 [7:29:10<5:16:54, 57.97s/it] 58%|█████▊    | 444/771 [7:30:07<5:14:44, 57.75s/it] 58%|█████▊    | 445/771 [7:31:05<5:13:44, 57.74s/it] 58%|█████▊    | 446/771 [7:32:03<5:13:25, 57.86s/it] 58%|█████▊    | 447/771 [7:33:01<5:12:49, 57.93s/it] 58%|█████▊    | 448/771 [7:33:59<5:11:43, 57.91s/it] 58%|█████▊    | 449/771 [7:34:57<5:11:16, 58.00s/it] 58%|█████▊    | 450/771 [7:35:55<5:10:16, 57.99s/it] 58%|█████▊    | 451/771 [7:36:54<5:09:49, 58.09s/it] 59%|█████▊    | 452/771 [7:37:52<5:09:14, 58.17s/it] 59%|█████▉    | 453/771 [7:38:50<5:08:10, 58.15s/it] 59%|█████▉    | 454/771 [7:39:48<5:06:42, 58.05s/it] 59%|█████▉    | 455/771 [7:40:46<5:05:35, 58.02s/it] 59%|█████▉    | 456/771 [7:41:44<5:04:24, 57.98s/it] 59%|█████▉    | 457/771 [7:42:41<5:02:39, 57.83s/it] 59%|█████▉    | 458/771 [7:43:39<5:02:04, 57.91s/it] 60%|█████▉    | 459/771 [7:44:37<5:00:52, 57.86s/it] 60%|█████▉    | 460/771 [7:45:35<4:59:29, 57.78s/it] 60%|█████▉    | 461/771 [7:46:33<4:59:03, 57.88s/it] 60%|█████▉    | 462/771 [7:47:30<4:57:30, 57.77s/it] 60%|██████    | 463/771 [7:48:28<4:57:02, 57.87s/it] 60%|██████    | 464/771 [7:49:27<4:56:23, 57.93s/it] 60%|██████    | 465/771 [7:50:25<4:55:47, 58.00s/it] 60%|██████    | 466/771 [7:51:22<4:54:22, 57.91s/it] 61%|██████    | 467/771 [7:52:21<4:53:39, 57.96s/it] 61%|██████    | 468/771 [7:53:19<4:53:11, 58.06s/it] 61%|██████    | 469/771 [7:54:17<4:51:58, 58.01s/it] 61%|██████    | 470/771 [7:55:15<4:51:03, 58.02s/it] 61%|██████    | 471/771 [7:56:13<4:50:06, 58.02s/it] 61%|██████    | 472/771 [7:57:11<4:49:01, 58.00s/it] 61%|██████▏   | 473/771 [7:58:09<4:48:02, 57.99s/it] 61%|██████▏   | 474/771 [7:59:06<4:46:46, 57.94s/it] 62%|██████▏   | 475/771 [8:00:05<4:46:05, 57.99s/it] 62%|██████▏   | 476/771 [8:01:03<4:45:46, 58.12s/it] 62%|██████▏   | 477/771 [8:02:01<4:45:05, 58.18s/it] 62%|██████▏   | 478/771 [8:02:59<4:42:51, 57.92s/it] 62%|██████▏   | 479/771 [8:03:57<4:42:04, 57.96s/it] 62%|██████▏   | 480/771 [8:04:55<4:41:18, 58.00s/it] 62%|██████▏   | 481/771 [8:05:53<4:40:13, 57.98s/it] 63%|██████▎   | 482/771 [8:06:50<4:38:51, 57.89s/it] 63%|██████▎   | 483/771 [8:07:48<4:37:07, 57.73s/it] 63%|██████▎   | 484/771 [8:08:46<4:36:29, 57.80s/it] 63%|██████▎   | 485/771 [8:09:43<4:35:10, 57.73s/it] 63%|██████▎   | 486/771 [8:10:42<4:34:56, 57.88s/it] 63%|██████▎   | 487/771 [8:11:40<4:34:30, 58.00s/it] 63%|██████▎   | 488/771 [8:12:37<4:33:00, 57.88s/it] 63%|██████▎   | 489/771 [8:13:35<4:32:17, 57.94s/it] 64%|██████▎   | 490/771 [8:14:33<4:31:24, 57.95s/it] 64%|██████▎   | 491/771 [8:15:32<4:30:36, 57.99s/it] 64%|██████▍   | 492/771 [8:16:29<4:29:21, 57.93s/it] 64%|██████▍   | 493/771 [8:17:27<4:28:36, 57.97s/it] 64%|██████▍   | 494/771 [8:18:26<4:27:59, 58.05s/it] 64%|██████▍   | 495/771 [8:19:24<4:26:59, 58.04s/it] 64%|██████▍   | 496/771 [8:20:21<4:25:34, 57.94s/it] 64%|██████▍   | 497/771 [8:21:19<4:24:30, 57.92s/it] 65%|██████▍   | 498/771 [8:22:18<4:24:04, 58.04s/it] 65%|██████▍   | 499/771 [8:23:15<4:22:42, 57.95s/it] 65%|██████▍   | 500/771 [8:24:14<4:22:08, 58.04s/it]                                                     {'loss': 2.5959, 'learning_rate': 5e-05, 'epoch': 1.95}
+ 65%|██████▍   | 500/771 [8:24:14<4:22:08, 58.04s/it][INFO|trainer.py:2881] 2024-03-08 01:50:58,994 >> Saving model checkpoint to outputs/Llama-2-7b-hf/checkpoint-500
+[INFO|configuration_utils.py:461] 2024-03-08 01:50:58,998 >> Configuration saved in outputs/Llama-2-7b-hf/checkpoint-500/config.json
+[INFO|configuration_utils.py:564] 2024-03-08 01:50:59,000 >> Configuration saved in outputs/Llama-2-7b-hf/checkpoint-500/generation_config.json
+[INFO|modeling_utils.py:2201] 2024-03-08 01:51:28,988 >> The model is bigger than the maximum size per checkpoint (5GB) and is going to be split in 6 checkpoint shards. You can find where each parameters has been saved in the index located at outputs/Llama-2-7b-hf/checkpoint-500/model.safetensors.index.json.
+[INFO|tokenization_utils_base.py:2428] 2024-03-08 01:51:28,991 >> tokenizer config file saved in outputs/Llama-2-7b-hf/checkpoint-500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2437] 2024-03-08 01:51:28,993 >> Special tokens file saved in outputs/Llama-2-7b-hf/checkpoint-500/special_tokens_map.json
+[2024-03-08 01:51:29,612] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint global_step500 is about to be saved!
+/home/abdul.waheed/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1802: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+[2024-03-08 01:51:29,620] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: outputs/Llama-2-7b-hf/checkpoint-500/global_step500/mp_rank_00_model_states.pt
+[2024-03-08 01:51:29,620] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving outputs/Llama-2-7b-hf/checkpoint-500/global_step500/mp_rank_00_model_states.pt...
+[2024-03-08 01:52:14,725] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved outputs/Llama-2-7b-hf/checkpoint-500/global_step500/mp_rank_00_model_states.pt.
+[2024-03-08 01:52:14,729] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving outputs/Llama-2-7b-hf/checkpoint-500/global_step500/zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-03-08 01:53:35,699] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved outputs/Llama-2-7b-hf/checkpoint-500/global_step500/zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-03-08 01:53:35,965] [INFO] [engine.py:3488:_save_zero_checkpoint] zero checkpoint saved outputs/Llama-2-7b-hf/checkpoint-500/global_step500/zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-03-08 01:53:35,965] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step500 is ready now!
+ 65%|██████▍   | 501/771 [8:29:32<10:12:02, 136.01s/it] 65%|██████▌   | 502/771 [8:30:29<8:24:26, 112.51s/it]  65%|██████▌   | 503/771 [8:31:27<7:09:13, 96.09s/it]  65%|██████▌   | 504/771 [8:32:25<6:16:21, 84.57s/it] 65%|██████▌   | 505/771 [8:33:23<5:39:36, 76.60s/it] 66%|██████▌   | 506/771 [8:34:20<5:13:21, 70.95s/it] 66%|██████▌   | 507/771 [8:35:18<4:55:09, 67.08s/it] 66%|██████▌   | 508/771 [8:36:17<4:42:39, 64.48s/it] 66%|██████▌   | 509/771 [8:37:15<4:32:59, 62.52s/it] 66%|██████▌   | 510/771 [8:38:13<4:25:50, 61.11s/it] 66%|██████▋   | 511/771 [8:39:11<4:21:01, 60.24s/it] 66%|██████▋   | 512/771 [8:40:09<4:17:14, 59.59s/it] 67%|██████▋   | 513/771 [8:41:07<4:14:16, 59.13s/it] 67%|██████▋   | 514/771 [8:42:05<4:12:05, 58.86s/it][INFO|trainer.py:3158] 2024-03-08 02:07:08,976 >> ***** Running Evaluation *****
+[INFO|trainer.py:3160] 2024-03-08 02:07:08,976 >>   Num examples = 942
+[INFO|trainer.py:3163] 2024-03-08 02:07:08,976 >>   Batch size = 4
+
+  0%|          | 0/30 [00:00<?, ?it/s][A
+  7%|▋         | 2/30 [00:05<01:16,  2.74s/it][A
+ 10%|█         | 3/30 [00:11<01:47,  3.98s/it][A
+ 13%|█▎        | 4/30 [00:17<02:04,  4.78s/it][A
+ 17%|█▋        | 5/30 [00:23<02:15,  5.44s/it][A
+ 20%|██        | 6/30 [00:30<02:20,  5.84s/it][A
+ 23%|██▎       | 7/30 [00:36<02:11,  5.73s/it][A
+ 27%|██▋       | 8/30 [00:40<01:59,  5.42s/it][A
+ 30%|███       | 9/30 [00:47<01:59,  5.70s/it][A
+ 33%|███▎      | 10/30 [00:53<01:59,  6.00s/it][A
+ 37%|███▋      | 11/30 [01:00<01:57,  6.18s/it][A
+ 40%|████      | 12/30 [01:07<01:53,  6.30s/it][A
+ 43%|████▎     | 13/30 [01:12<01:43,  6.07s/it][A
+ 47%|████▋     | 14/30 [01:19<01:39,  6.23s/it][A
+ 50%|█████     | 15/30 [01:25<01:35,  6.35s/it][A
+ 53%|█████▎    | 16/30 [01:32<01:30,  6.45s/it][A
+ 57%|█████▋    | 17/30 [01:39<01:24,  6.51s/it][A
+ 60%|██████    | 18/30 [01:45<01:18,  6.56s/it][A
+ 63%|██████▎   | 19/30 [01:52<01:12,  6.59s/it][A
+ 67%|██████▋   | 20/30 [01:59<01:05,  6.59s/it][A
+ 70%|███████   | 21/30 [02:04<00:56,  6.33s/it][A
+ 73%|███████▎  | 22/30 [02:11<00:50,  6.32s/it][A
+ 77%|███████▋  | 23/30 [02:17<00:43,  6.20s/it][A
+ 80%|████████  | 24/30 [02:23<00:37,  6.23s/it][A
+ 83%|████████▎ | 25/30 [02:28<00:29,  5.96s/it][A
+ 87%|████████▋ | 26/30 [02:33<00:21,  5.48s/it][A
+ 90%|█████████ | 27/30 [02:38<00:16,  5.53s/it][A
+ 93%|█████████▎| 28/30 [02:44<00:11,  5.70s/it][A
+ 97%|█████████▋| 29/30 [02:50<00:05,  5.59s/it][A
+100%|██████████| 30/30 [02:55<00:00,  5.62s/it][A03/08/2024 02:10:38 - INFO - __main__ - 
+                    Examples.
+                    Ground Truth: he was in a fevered state of mind owing to the blight his wife's action threatened to cast upon his entire future
+                    Prediction: sierp the the a the and and9the77775449999331179331999937799933959998998965495444655555544374495999444333347734877844455554479776999993999996676699911619444474699199775533991799943444499943777558844335554667777888875499666889666664596656555114433997776999966599977988955339117398576666644443447844337939337769986667999843775844999999991and was a short statever to state of mind becauseing to the factinding which wife hads health had him par a him life future andandandandandandandandthethethethethethethethethethethethethethethethethethethethethethethethethethethetheandandandandthethethetheandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandand
+                    Ground Truth: he would have to pay her the money which she would now regularly demand or there would be trouble it did not matter what he did
+                    Prediction: sierp the the a the and and9999997499949999999999999999999993444939999559999999199999979999493979994991999999999199949999995995777719999985999979998999599699499995433959999944444333776134977764949999999999999999599999996669996199996667799999944443759449999977449999939993499549956999944459969699999943956999319999933449463397775944499999999and was have been be a back full he he had need hold receive of she would be no silence was not seem how the paid for
+        
+        
+                                                     
+                                               [A{'eval_loss': 3.905172348022461, 'eval_wer': '3050.66', 'eval_cer': '4909.03', 'eval_runtime': 209.2049, 'eval_samples_per_second': 4.503, 'eval_steps_per_second': 0.143, 'epoch': 2.0}
+ 67%|██████▋   | 514/771 [8:45:34<4:12:05, 58.86s/it]
+100%|██████████| 30/30 [03:25<00:00,  5.62s/it][A
+                                               [A 67%|██████▋   | 515/771 [8:46:32<8:37:42, 121.34s/it] 67%|██████▋   | 516/771 [8:47:30<7:14:55, 102.33s/it] 67%|██████▋   | 517/771 [8:48:28<6:17:01, 89.06s/it]  67%|██████▋   | 518/771 [8:49:26<5:36:09, 79.72s/it] 67%|██████▋   | 519/771 [8:50:24<5:07:08, 73.13s/it] 67%|██████▋   | 520/771 [8:51:22<4:47:17, 68.68s/it] 68%|██████▊   | 521/771 [8:52:20<4:32:14, 65.34s/it] 68%|██████▊   | 522/771 [8:53:18<4:21:36, 63.04s/it] 68%|██████▊   | 523/771 [8:54:15<4:13:54, 61.43s/it] 68%|██████▊   | 524/771 [8:55:13<4:08:11, 60.29s/it] 68%|██████▊   | 525/771 [8:56:11<4:04:20, 59.60s/it] 68%|██████▊   | 526/771 [8:57:09<4:01:26, 59.13s/it] 68%|██████▊   | 527/771 [8:58:07<3:59:05, 58.79s/it] 68%|██████▊   | 528/771 [8:59:04<3:56:31, 58.40s/it] 69%|██████▊   | 529/771 [9:00:03<3:55:20, 58.35s/it] 69%|██████▊   | 530/771 [9:01:01<3:53:45, 58.20s/it] 69%|██████▉   | 531/771 [9:01:59<3:52:49, 58.21s/it] 69%|██████▉   | 532/771 [9:02:57<3:51:34, 58.14s/it] 69%|██████▉   | 533/771 [9:03:55<3:50:32, 58.12s/it] 69%|██████▉   | 534/771 [9:04:53<3:49:24, 58.08s/it] 69%|██████▉   | 535/771 [9:05:51<3:48:18, 58.05s/it] 70%|██████▉   | 536/771 [9:06:49<3:47:46, 58.16s/it] 70%|██████▉   | 537/771 [9:07:47<3:46:32, 58.09s/it] 70%|██████▉   | 538/771 [9:08:45<3:45:31, 58.08s/it] 70%|██████▉   | 539/771 [9:09:43<3:44:22, 58.03s/it] 70%|███████   | 540/771 [9:10:41<3:43:18, 58.00s/it] 70%|███████   | 541/771 [9:11:39<3:42:18, 57.99s/it] 70%|███████   | 542/771 [9:12:37<3:41:04, 57.92s/it] 70%|███████   | 543/771 [9:13:35<3:39:59, 57.89s/it] 71%|███████   | 544/771 [9:14:32<3:39:03, 57.90s/it] 71%|███████   | 545/771 [9:15:30<3:37:53, 57.85s/it] 71%|███████   | 546/771 [9:16:28<3:37:14, 57.93s/it] 71%|███████   | 547/771 [9:17:27<3:36:38, 58.03s/it] 71%|███████   | 548/771 [9:18:24<3:35:32, 57.99s/it] 71%|███████   | 549/771 [9:19:23<3:34:54, 58.08s/it] 71%|███████▏  | 550/771 [9:20:20<3:33:27, 57.95s/it] 71%|███████▏  | 551/771 [9:21:18<3:32:36, 57.98s/it] 72%|███████▏  | 552/771 [9:22:16<3:31:36, 57.98s/it] 72%|███████▏  | 553/771 [9:23:15<3:30:56, 58.06s/it] 72%|███████▏  | 554/771 [9:24:13<3:30:06, 58.10s/it] 72%|███████▏  | 555/771 [9:25:11<3:29:01, 58.06s/it] 72%|███████▏  | 556/771 [9:26:09<3:28:15, 58.12s/it] 72%|███████▏  | 557/771 [9:27:07<3:27:20, 58.13s/it] 72%|███████▏  | 558/771 [9:28:05<3:26:23, 58.14s/it] 73%|███████▎  | 559/771 [9:29:03<3:24:58, 58.01s/it] 73%|███████▎  | 560/771 [9:30:01<3:24:13, 58.07s/it] 73%|███████▎  | 561/771 [9:31:00<3:23:21, 58.10s/it] 73%|███████▎  | 562/771 [9:31:58<3:22:23, 58.10s/it] 73%|███████▎  | 563/771 [9:32:56<3:21:37, 58.16s/it] 73%|███████▎  | 564/771 [9:33:54<3:20:38, 58.16s/it] 73%|███████▎  | 565/771 [9:34:52<3:19:22, 58.07s/it] 73%|███████▎  | 566/771 [9:35:50<3:18:42, 58.16s/it] 74%|███████▎  | 567/771 [9:36:49<3:17:49, 58.18s/it] 74%|███████▎  | 568/771 [9:37:46<3:16:18, 58.02s/it] 74%|███████▍  | 569/771 [9:38:44<3:14:45, 57.85s/it] 74%|███████▍  | 570/771 [9:39:42<3:13:49, 57.86s/it] 74%|███████▍  | 571/771 [9:40:40<3:13:00, 57.90s/it] 74%|███████▍  | 572/771 [9:41:38<3:12:17, 57.98s/it] 74%|███████▍  | 573/771 [9:42:35<3:11:06, 57.91s/it] 74%|███████▍  | 574/771 [9:43:33<3:10:07, 57.90s/it] 75%|███████▍  | 575/771 [9:44:32<3:09:35, 58.04s/it] 75%|███████▍  | 576/771 [9:45:30<3:08:34, 58.02s/it] 75%|███████▍  | 577/771 [9:46:28<3:07:29, 57.99s/it] 75%|███████▍  | 578/771 [9:47:26<3:06:46, 58.06s/it] 75%|███████▌  | 579/771 [9:48:24<3:05:47, 58.06s/it] 75%|███████▌  | 580/771 [9:49:22<3:04:58, 58.11s/it] 75%|███████▌  | 581/771 [9:50:20<3:03:50, 58.06s/it] 75%|███████▌  | 582/771 [9:51:18<3:02:28, 57.93s/it] 76%|███████▌  | 583/771 [9:52:15<3:01:03, 57.79s/it] 76%|███████▌  | 584/771 [9:53:13<3:00:08, 57.80s/it] 76%|███████▌  | 585/771 [9:54:11<2:59:27, 57.89s/it] 76%|███████▌  | 586/771 [9:55:09<2:58:28, 57.88s/it] 76%|███████▌  | 587/771 [9:56:07<2:57:41, 57.95s/it] 76%|███████▋  | 588/771 [9:57:05<2:56:47, 57.96s/it] 76%|███████▋  | 589/771 [9:58:03<2:55:37, 57.90s/it] 77%|███████▋  | 590/771 [9:59:00<2:54:31, 57.85s/it] 77%|███████▋  | 591/771 [9:59:58<2:53:32, 57.85s/it] 77%|███████▋  | 592/771 [10:00:56<2:52:48, 57.93s/it] 77%|███████▋  | 593/771 [10:01:54<2:51:49, 57.92s/it] 77%|███████▋  | 594/771 [10:02:53<2:51:06, 58.00s/it] 77%|███████▋  | 595/771 [10:03:51<2:50:11, 58.02s/it] 77%|███████▋  | 596/771 [10:04:49<2:49:11, 58.01s/it] 77%|███████▋  | 597/771 [10:05:46<2:48:06, 57.97s/it] 78%|███████▊  | 598/771 [10:06:45<2:47:19, 58.03s/it] 78%|███████▊  | 599/771 [10:07:43<2:46:16, 58.00s/it] 78%|███████▊  | 600/771 [10:08:41<2:45:29, 58.07s/it][INFO|trainer.py:2881] 2024-03-08 03:35:25,354 >> Saving model checkpoint to outputs/Llama-2-7b-hf/checkpoint-600
+[INFO|configuration_utils.py:461] 2024-03-08 03:35:25,378 >> Configuration saved in outputs/Llama-2-7b-hf/checkpoint-600/config.json
+[INFO|configuration_utils.py:564] 2024-03-08 03:35:25,393 >> Configuration saved in outputs/Llama-2-7b-hf/checkpoint-600/generation_config.json
+[INFO|modeling_utils.py:2201] 2024-03-08 03:35:56,396 >> The model is bigger than the maximum size per checkpoint (5GB) and is going to be split in 6 checkpoint shards. You can find where each parameters has been saved in the index located at outputs/Llama-2-7b-hf/checkpoint-600/model.safetensors.index.json.
+[INFO|tokenization_utils_base.py:2428] 2024-03-08 03:35:56,399 >> tokenizer config file saved in outputs/Llama-2-7b-hf/checkpoint-600/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2437] 2024-03-08 03:35:56,401 >> Special tokens file saved in outputs/Llama-2-7b-hf/checkpoint-600/special_tokens_map.json
+[2024-03-08 03:35:57,481] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint global_step600 is about to be saved!
+/home/abdul.waheed/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1802: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+[2024-03-08 03:35:57,490] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: outputs/Llama-2-7b-hf/checkpoint-600/global_step600/mp_rank_00_model_states.pt
+[2024-03-08 03:35:57,490] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving outputs/Llama-2-7b-hf/checkpoint-600/global_step600/mp_rank_00_model_states.pt...
+[2024-03-08 03:36:35,553] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved outputs/Llama-2-7b-hf/checkpoint-600/global_step600/mp_rank_00_model_states.pt.
+[2024-03-08 03:36:35,557] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving outputs/Llama-2-7b-hf/checkpoint-600/global_step600/zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-03-08 03:37:44,045] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved outputs/Llama-2-7b-hf/checkpoint-600/global_step600/zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-03-08 03:37:44,252] [INFO] [engine.py:3488:_save_zero_checkpoint] zero checkpoint saved outputs/Llama-2-7b-hf/checkpoint-600/global_step600/zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-03-08 03:37:44,252] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step600 is ready now!
+ 78%|███████▊  | 601/771 [10:13:39<6:08:43, 130.14s/it] 78%|███████▊  | 602/771 [10:14:37<5:05:36, 108.50s/it] 78%|███████▊  | 603/771 [10:15:35<4:21:24, 93.36s/it]  78%|███████▊  | 604/771 [10:16:33<3:50:11, 82.70s/it] 78%|███████▊  | 605/771 [10:17:31<3:28:29, 75.36s/it] 79%|███████▊  | 606/771 [10:18:29<3:13:02, 70.19s/it] 79%|███████▊  | 607/771 [10:19:27<3:01:43, 66.48s/it] 79%|███████▉  | 608/771 [10:20:25<2:53:56, 64.03s/it] 79%|███████▉  | 609/771 [10:21:24<2:48:06, 62.26s/it] 79%|███████▉  | 610/771 [10:22:21<2:43:28, 60.92s/it] 79%|███████▉  | 611/771 [10:23:19<2:40:08, 60.05s/it] 79%|███████▉  | 612/771 [10:24:18<2:37:36, 59.47s/it] 80%|███████▉  | 613/771 [10:25:15<2:35:13, 58.95s/it] 80%|███████▉  | 614/771 [10:26:13<2:33:28, 58.65s/it] 80%|███████▉  | 615/771 [10:27:11<2:31:54, 58.43s/it] 80%|███████▉  | 616/771 [10:28:09<2:30:23, 58.21s/it] 80%|████████  | 617/771 [10:29:06<2:28:58, 58.04s/it] 80%|████████  | 618/771 [10:30:04<2:27:50, 57.98s/it] 80%|████████  | 619/771 [10:31:02<2:26:50, 57.96s/it] 80%|████████  | 620/771 [10:32:00<2:25:48, 57.94s/it] 81%|████████  | 621/771 [10:32:58<2:25:08, 58.06s/it] 81%|████████  | 622/771 [10:33:56<2:24:08, 58.05s/it] 81%|████████  | 623/771 [10:34:55<2:23:22, 58.12s/it] 81%|████████  | 624/771 [10:35:53<2:22:48, 58.29s/it] 81%|████████  | 625/771 [10:36:51<2:21:31, 58.16s/it] 81%|████████  | 626/771 [10:37:49<2:20:22, 58.09s/it] 81%|████████▏ | 627/771 [10:38:47<2:19:25, 58.09s/it] 81%|████████▏ | 628/771 [10:39:45<2:18:15, 58.01s/it] 82%|████████▏ | 629/771 [10:40:43<2:16:59, 57.88s/it] 82%|████████▏ | 630/771 [10:41:41<2:15:58, 57.86s/it] 82%|████████▏ | 631/771 [10:42:39<2:15:06, 57.90s/it] 82%|████████▏ | 632/771 [10:43:37<2:14:13, 57.94s/it] 82%|████████▏ | 633/771 [10:44:35<2:13:18, 57.96s/it] 82%|████████▏ | 634/771 [10:45:33<2:12:27, 58.01s/it] 82%|████████▏ | 635/771 [10:46:31<2:11:23, 57.97s/it] 82%|████████▏ | 636/771 [10:47:29<2:10:33, 58.02s/it] 83%|████████▎ | 637/771 [10:48:27<2:09:24, 57.95s/it] 83%|████████▎ | 638/771 [10:49:24<2:08:10, 57.82s/it] 83%|████████▎ | 639/771 [10:50:22<2:07:26, 57.93s/it] 83%|████████▎ | 640/771 [10:51:20<2:06:22, 57.88s/it] 83%|████████▎ | 641/771 [10:52:18<2:05:27, 57.91s/it] 83%|████████▎ | 642/771 [10:53:16<2:04:28, 57.90s/it] 83%|████████▎ | 643/771 [10:54:14<2:03:32, 57.91s/it] 84%|████████▎ | 644/771 [10:55:11<2:02:24, 57.83s/it] 84%|████████▎ | 645/771 [10:56:09<2:01:24, 57.82s/it] 84%|████████▍ | 646/771 [10:57:07<2:00:29, 57.84s/it] 84%|████████▍ | 647/771 [10:58:05<1:59:42, 57.93s/it] 84%|████████▍ | 648/771 [10:59:03<1:58:45, 57.93s/it] 84%|████████▍ | 649/771 [11:00:01<1:57:44, 57.91s/it] 84%|████████▍ | 650/771 [11:00:59<1:56:56, 57.99s/it] 84%|████████▍ | 651/771 [11:01:57<1:55:41, 57.85s/it] 85%|████████▍ | 652/771 [11:02:55<1:54:52, 57.92s/it] 85%|████████▍ | 653/771 [11:03:53<1:54:01, 57.98s/it] 85%|████████▍ | 654/771 [11:04:51<1:52:55, 57.91s/it] 85%|████████▍ | 655/771 [11:05:48<1:51:49, 57.84s/it] 85%|████████▌ | 656/771 [11:06:46<1:51:01, 57.93s/it] 85%|████████▌ | 657/771 [11:07:44<1:49:49, 57.81s/it] 85%|████████▌ | 658/771 [11:08:42<1:49:02, 57.90s/it] 85%|████████▌ | 659/771 [11:09:40<1:48:12, 57.97s/it] 86%|████████▌ | 660/771 [11:10:38<1:47:17, 58.00s/it] 86%|████████▌ | 661/771 [11:11:37<1:46:26, 58.06s/it] 86%|████████▌ | 662/771 [11:12:34<1:45:24, 58.02s/it] 86%|████████▌ | 663/771 [11:13:32<1:44:18, 57.95s/it] 86%|████████▌ | 664/771 [11:14:30<1:43:23, 57.98s/it] 86%|████████▋ | 665/771 [11:15:28<1:42:33, 58.05s/it] 86%|████████▋ | 666/771 [11:16:27<1:41:38, 58.08s/it] 87%|████████▋ | 667/771 [11:17:25<1:40:38, 58.06s/it] 87%|████████▋ | 668/771 [11:18:22<1:39:23, 57.90s/it] 87%|████████▋ | 669/771 [11:19:20<1:38:37, 58.02s/it] 87%|████████▋ | 670/771 [11:20:18<1:37:29, 57.92s/it] 87%|████████▋ | 671/771 [11:21:16<1:36:25, 57.86s/it] 87%|████████▋ | 672/771 [11:22:14<1:35:39, 57.98s/it] 87%|████████▋ | 673/771 [11:23:12<1:34:40, 57.96s/it] 87%|████████▋ | 674/771 [11:24:10<1:33:33, 57.87s/it] 88%|████████▊ | 675/771 [11:25:08<1:32:40, 57.92s/it] 88%|████████▊ | 676/771 [11:26:06<1:31:53, 58.03s/it] 88%|████████▊ | 677/771 [11:27:04<1:30:46, 57.94s/it] 88%|████████▊ | 678/771 [11:28:02<1:29:55, 58.02s/it] 88%|████████▊ | 679/771 [11:29:00<1:28:58, 58.02s/it] 88%|████████▊ | 680/771 [11:29:58<1:27:55, 57.97s/it] 88%|████████▊ | 681/771 [11:30:56<1:26:59, 57.99s/it] 88%|████████▊ | 682/771 [11:31:54<1:26:03, 58.02s/it] 89%|████████▊ | 683/771 [11:32:52<1:25:04, 58.00s/it] 89%|████████▊ | 684/771 [11:33:50<1:24:09, 58.04s/it] 89%|████████▉ | 685/771 [11:34:48<1:23:08, 58.01s/it] 89%|████████▉ | 686/771 [11:35:46<1:22:08, 57.99s/it] 89%|████████▉ | 687/771 [11:36:44<1:21:15, 58.04s/it] 89%|████████▉ | 688/771 [11:37:42<1:20:20, 58.08s/it] 89%|████████▉ | 689/771 [11:38:41<1:19:28, 58.15s/it] 89%|████████▉ | 690/771 [11:39:39<1:18:29, 58.15s/it] 90%|████████▉ | 691/771 [11:40:37<1:17:27, 58.09s/it] 90%|████████▉ | 692/771 [11:41:34<1:16:17, 57.94s/it] 90%|████████▉ | 693/771 [11:42:32<1:15:23, 57.99s/it] 90%|█████████ | 694/771 [11:43:30<1:14:27, 58.02s/it] 90%|█████████ | 695/771 [11:44:28<1:13:29, 58.02s/it] 90%|█████████ | 696/771 [11:45:27<1:12:33, 58.04s/it] 90%|█████████ | 697/771 [11:46:25<1:11:37, 58.08s/it] 91%|█████████ | 698/771 [11:47:23<1:10:45, 58.16s/it] 91%|█████████ | 699/771 [11:48:21<1:09:43, 58.11s/it] 91%|█████████ | 700/771 [11:49:19<1:08:34, 57.95s/it][INFO|trainer.py:2881] 2024-03-08 05:16:15,412 >> Saving model checkpoint to outputs/Llama-2-7b-hf/checkpoint-700
+[INFO|configuration_utils.py:461] 2024-03-08 05:16:15,424 >> Configuration saved in outputs/Llama-2-7b-hf/checkpoint-700/config.json
+[INFO|configuration_utils.py:564] 2024-03-08 05:16:15,448 >> Configuration saved in outputs/Llama-2-7b-hf/checkpoint-700/generation_config.json
+[INFO|modeling_utils.py:2201] 2024-03-08 05:16:43,870 >> The model is bigger than the maximum size per checkpoint (5GB) and is going to be split in 6 checkpoint shards. You can find where each parameters has been saved in the index located at outputs/Llama-2-7b-hf/checkpoint-700/model.safetensors.index.json.
+[INFO|tokenization_utils_base.py:2428] 2024-03-08 05:16:43,873 >> tokenizer config file saved in outputs/Llama-2-7b-hf/checkpoint-700/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2437] 2024-03-08 05:16:43,875 >> Special tokens file saved in outputs/Llama-2-7b-hf/checkpoint-700/special_tokens_map.json
+[2024-03-08 05:16:44,569] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint global_step700 is about to be saved!
+/home/abdul.waheed/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1802: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+[2024-03-08 05:16:44,577] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: outputs/Llama-2-7b-hf/checkpoint-700/global_step700/mp_rank_00_model_states.pt
+[2024-03-08 05:16:44,577] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving outputs/Llama-2-7b-hf/checkpoint-700/global_step700/mp_rank_00_model_states.pt...
+[2024-03-08 05:17:25,349] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved outputs/Llama-2-7b-hf/checkpoint-700/global_step700/mp_rank_00_model_states.pt.
+[2024-03-08 05:17:25,353] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving outputs/Llama-2-7b-hf/checkpoint-700/global_step700/zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-03-08 05:18:42,509] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved outputs/Llama-2-7b-hf/checkpoint-700/global_step700/zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-03-08 05:18:42,923] [INFO] [engine.py:3488:_save_zero_checkpoint] zero checkpoint saved outputs/Llama-2-7b-hf/checkpoint-700/global_step700/zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-03-08 05:18:42,923] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step700 is ready now!
+ 91%|█████████ | 701/771 [11:54:37<2:38:53, 136.20s/it] 91%|█████████ | 702/771 [11:55:36<2:09:42, 112.79s/it] 91%|█████████ | 703/771 [11:56:34<1:49:19, 96.47s/it]  91%|█████████▏| 704/771 [11:57:32<1:34:56, 85.03s/it] 91%|█████████▏| 705/771 [11:58:30<1:24:34, 76.89s/it] 92%|█████████▏| 706/771 [11:59:28<1:17:09, 71.22s/it] 92%|█████████▏| 707/771 [12:00:26<1:11:48, 67.31s/it] 92%|█████████▏| 708/771 [12:01:24<1:07:42, 64.49s/it] 92%|█████████▏| 709/771 [12:02:22<1:04:33, 62.48s/it] 92%|█████████▏| 710/771 [12:03:20<1:02:12, 61.20s/it] 92%|█████████▏| 711/771 [12:04:18<1:00:17, 60.29s/it] 92%|█████████▏| 712/771 [12:05:17<58:37, 59.62s/it]   92%|█████████▏| 713/771 [12:06:15<57:12, 59.17s/it] 93%|█████████▎| 714/771 [12:07:13<55:53, 58.84s/it] 93%|█████████▎| 715/771 [12:08:11<54:37, 58.53s/it] 93%|█████████▎| 716/771 [12:09:09<53:30, 58.37s/it] 93%|█████████▎| 717/771 [12:10:06<52:23, 58.22s/it] 93%|█████████▎| 718/771 [12:11:04<51:19, 58.10s/it] 93%|█████████▎| 719/771 [12:12:02<50:16, 58.01s/it] 93%|█████████▎| 720/771 [12:13:00<49:15, 57.96s/it] 94%|█████████▎| 721/771 [12:13:58<48:15, 57.90s/it] 94%|█████████▎| 722/771 [12:14:56<47:20, 57.98s/it] 94%|█████████▍| 723/771 [12:15:54<46:30, 58.13s/it] 94%|█████████▍| 724/771 [12:16:52<45:31, 58.12s/it] 94%|█████████▍| 725/771 [12:17:51<44:35, 58.15s/it] 94%|█████████▍| 726/771 [12:18:49<43:35, 58.12s/it] 94%|█████████▍| 727/771 [12:19:47<42:37, 58.13s/it] 94%|█████████▍| 728/771 [12:20:45<41:38, 58.11s/it] 95%|█████████▍| 729/771 [12:21:43<40:35, 57.98s/it] 95%|█████████▍| 730/771 [12:22:41<39:39, 58.04s/it] 95%|█████████▍| 731/771 [12:23:39<38:43, 58.08s/it] 95%|█████████▍| 732/771 [12:24:37<37:45, 58.09s/it] 95%|█████████▌| 733/771 [12:25:36<36:54, 58.27s/it] 95%|█████████▌| 734/771 [12:26:33<35:50, 58.11s/it] 95%|█████████▌| 735/771 [12:27:31<34:49, 58.04s/it] 95%|█████████▌| 736/771 [12:28:30<33:53, 58.11s/it] 96%|█████████▌| 737/771 [12:29:27<32:53, 58.04s/it] 96%|█████████▌| 738/771 [12:30:26<31:55, 58.05s/it] 96%|█████████▌| 739/771 [12:31:23<30:55, 57.99s/it] 96%|█████████▌| 740/771 [12:32:21<29:56, 57.94s/it] 96%|█████████▌| 741/771 [12:33:19<28:59, 57.97s/it] 96%|█████████▌| 742/771 [12:34:17<27:57, 57.85s/it] 96%|█████████▋| 743/771 [12:35:15<27:02, 57.93s/it] 96%|█████████▋| 744/771 [12:36:13<26:06, 58.03s/it] 97%|█████████▋| 745/771 [12:37:11<25:10, 58.09s/it] 97%|█████████▋| 746/771 [12:38:09<24:09, 57.96s/it] 97%|█████████▋| 747/771 [12:39:07<23:09, 57.91s/it] 97%|█████████▋| 748/771 [12:40:05<22:11, 57.89s/it] 97%|█████████▋| 749/771 [12:41:03<21:16, 58.02s/it] 97%|█████████▋| 750/771 [12:42:01<20:18, 58.04s/it] 97%|█████████▋| 751/771 [12:42:59<19:20, 58.02s/it] 98%|█████████▊| 752/771 [12:43:57<18:23, 58.06s/it] 98%|█████████▊| 753/771 [12:44:55<17:24, 58.02s/it] 98%|█████████▊| 754/771 [12:45:53<16:26, 58.04s/it] 98%|█████████▊| 755/771 [12:46:51<15:28, 58.03s/it] 98%|█████████▊| 756/771 [12:47:49<14:30, 58.05s/it] 98%|█████████▊| 757/771 [12:48:47<13:29, 57.83s/it] 98%|█████████▊| 758/771 [12:49:45<12:31, 57.84s/it] 98%|█████████▊| 759/771 [12:50:42<11:33, 57.80s/it] 99%|█████████▊| 760/771 [12:51:41<10:37, 57.93s/it] 99%|█████████▊| 761/771 [12:52:38<09:38, 57.87s/it] 99%|█████████▉| 762/771 [12:53:36<08:41, 57.94s/it] 99%|█████████▉| 763/771 [12:54:35<07:44, 58.07s/it] 99%|█████████▉| 764/771 [12:55:33<06:46, 58.12s/it] 99%|█████████▉| 765/771 [12:56:31<05:48, 58.07s/it] 99%|█████████▉| 766/771 [12:57:29<04:50, 58.09s/it] 99%|█████████▉| 767/771 [12:58:27<03:52, 58.06s/it]100%|█████████▉| 768/771 [12:59:25<02:54, 58.01s/it]100%|█████████▉| 769/771 [13:00:23<01:55, 57.99s/it]100%|█████████▉| 770/771 [13:01:21<00:57, 57.99s/it]100%|██████████| 771/771 [13:02:19<00:00, 58.03s/it][INFO|trainer.py:3158] 2024-03-08 06:27:22,738 >> ***** Running Evaluation *****
+[INFO|trainer.py:3160] 2024-03-08 06:27:22,738 >>   Num examples = 942
+[INFO|trainer.py:3163] 2024-03-08 06:27:22,738 >>   Batch size = 4
+
+  0%|          | 0/30 [00:00<?, ?it/s][A
+  7%|▋         | 2/30 [00:05<01:16,  2.74s/it][A
+ 10%|█         | 3/30 [00:11<01:47,  3.98s/it][A
+ 13%|█▎        | 4/30 [00:17<02:04,  4.78s/it][A
+ 17%|█▋        | 5/30 [00:23<02:15,  5.44s/it][A
+ 20%|██        | 6/30 [00:30<02:20,  5.84s/it][A
+ 23%|██▎       | 7/30 [00:36<02:11,  5.73s/it][A
+ 27%|██▋       | 8/30 [00:40<01:59,  5.42s/it][A
+ 30%|███       | 9/30 [00:47<01:59,  5.70s/it][A
+ 33%|███▎      | 10/30 [00:53<01:59,  6.00s/it][A
+ 37%|███▋      | 11/30 [01:00<01:57,  6.18s/it][A
+ 40%|████      | 12/30 [01:07<01:53,  6.30s/it][A
+ 43%|████▎     | 13/30 [01:12<01:43,  6.07s/it][A
+ 47%|████▋     | 14/30 [01:19<01:39,  6.23s/it][A
+ 50%|█████     | 15/30 [01:25<01:35,  6.35s/it][A
+ 53%|█████▎    | 16/30 [01:32<01:30,  6.44s/it][A
+ 57%|█████▋    | 17/30 [01:39<01:24,  6.51s/it][A
+ 60%|██████    | 18/30 [01:45<01:18,  6.56s/it][A
+ 63%|██████▎   | 19/30 [01:52<01:12,  6.59s/it][A
+ 67%|██████▋   | 20/30 [01:59<01:05,  6.59s/it][A
+ 70%|███████   | 21/30 [02:04<00:56,  6.33s/it][A
+ 73%|███████▎  | 22/30 [02:11<00:50,  6.32s/it][A
+ 77%|███████▋  | 23/30 [02:17<00:43,  6.20s/it][A
+ 80%|████████  | 24/30 [02:23<00:37,  6.23s/it][A
+ 83%|████████▎ | 25/30 [02:28<00:29,  5.96s/it][A
+ 87%|████████▋ | 26/30 [02:33<00:21,  5.48s/it][A
+ 90%|█████████ | 27/30 [02:38<00:16,  5.53s/it][A
+ 93%|█████████▎| 28/30 [02:44<00:11,  5.70s/it][A
+ 97%|█████████▋| 29/30 [02:50<00:05,  5.59s/it][A
+100%|██████████| 30/30 [02:55<00:00,  5.62s/it][A03/08/2024 06:30:49 - INFO - __main__ - 
+                    Examples.
+                    Ground Truth: he was in a fevered state of mind owing to the blight his wife's action threatened to cast upon his entire future
+                    Prediction: sierpand the a printh law9the977777774744and was a the badverish state of nerv anding to the straister which garden wass health had him par a him whole future theandandandheandandhehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehethetheandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandand
+                    Ground Truth: he would have to pay her the money which she would now regularly demand or there would be trouble it did not matter what he did
+                    Prediction: sierpand the a printh lawthst999991117944and was have bor be a back money to he had require ask receive of else would be trouble you was not seem in the did for
+        
+        
+                                                    
+                                               [A{'eval_loss': 4.714150428771973, 'eval_wer': '3042.25', 'eval_cer': '4646.43', 'eval_runtime': 206.4317, 'eval_samples_per_second': 4.563, 'eval_steps_per_second': 0.145, 'epoch': 3.0}
+100%|██████████| 771/771 [13:05:45<00:00, 58.03s/it]
+100%|██████████| 30/30 [03:23<00:00,  5.62s/it][A
+                                               [A[INFO|trainer.py:1955] 2024-03-08 06:30:49,170 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                                    {'train_runtime': 47145.9238, 'train_samples_per_second': 1.046, 'train_steps_per_second': 0.016, 'train_loss': 1.9181803345834854, 'epoch': 3.0}
+100%|██████████| 771/771 [13:05:46<00:00, 58.03s/it]100%|██████████| 771/771 [13:05:46<00:00, 61.15s/it]
+03/08/2024 06:30:49 - INFO - __main__ - Running training after training.
+[INFO|trainer.py:3158] 2024-03-08 06:30:49,355 >> ***** Running Evaluation *****
+[INFO|trainer.py:3160] 2024-03-08 06:30:49,355 >>   Num examples = 890
+[INFO|trainer.py:3163] 2024-03-08 06:30:49,355 >>   Batch size = 4
+  0%|          | 0/28 [00:00<?, ?it/s]  7%|▋         | 2/28 [00:06<01:20,  3.10s/it] 11%|█         | 3/28 [00:12<01:54,  4.58s/it] 14%|█▍        | 4/28 [00:19<02:08,  5.34s/it] 18%|█▊        | 5/28 [00:26<02:13,  5.81s/it] 21%|██▏       | 6/28 [00:31<02:06,  5.75s/it] 25%|██▌       | 7/28 [00:37<02:03,  5.87s/it] 29%|██▊       | 8/28 [00:44<02:00,  6.05s/it] 32%|███▏      | 9/28 [00:51<01:58,  6.24s/it] 36%|███▌      | 10/28 [00:57<01:51,  6.18s/it] 39%|███▉      | 11/28 [01:03<01:47,  6.30s/it] 43%|████▎     | 12/28 [01:10<01:42,  6.41s/it] 46%|████▋     | 13/28 [01:17<01:37,  6.51s/it] 50%|█████     | 14/28 [01:23<01:30,  6.44s/it] 54%|█████▎    | 15/28 [01:29<01:23,  6.40s/it] 57%|█████▋    | 16/28 [01:35<01:15,  6.31s/it] 61%|██████    | 17/28 [01:40<01:02,  5.72s/it] 64%|██████▍   | 18/28 [01:46<01:00,  6.00s/it] 68%|██████▊   | 19/28 [01:51<00:49,  5.55s/it] 71%|███████▏  | 20/28 [01:57<00:46,  5.83s/it] 75%|███████▌  | 21/28 [02:03<00:39,  5.67s/it] 79%|███████▊  | 22/28 [02:09<00:34,  5.81s/it] 82%|████████▏ | 23/28 [02:15<00:29,  5.91s/it] 86%|████████▌ | 24/28 [02:21<00:24,  6.13s/it] 89%|████████▉ | 25/28 [02:27<00:17,  5.95s/it] 93%|█████████▎| 26/28 [02:32<00:11,  5.54s/it] 96%|█████████▋| 27/28 [02:34<00:04,  4.73s/it]100%|██████████| 28/28 [02:41<00:00,  5.20s/it]Results after training: {'eval_loss': 4.629424571990967, 'eval_wer': '2696.67', 'eval_cer': '4311.21', 'eval_runtime': 192.9513, 'eval_samples_per_second': 4.613, 'eval_steps_per_second': 0.145, 'epoch': 3.0}
+Training finished! Saved model to outputs/Llama-2-7b-hf.
+Results after training: {'eval_loss': 4.629424571990967, 'eval_wer': '2696.67', 'eval_cer': '4311.21', 'eval_runtime': 193.2177, 'eval_samples_per_second': 4.606, 'eval_steps_per_second': 0.145, 'epoch': 3.0}
+Training finished! Saved model to outputs/Llama-2-7b-hf.
+Results after training: {'eval_loss': 4.629424571990967, 'eval_wer': '2696.67', 'eval_cer': '4311.21', 'eval_runtime': 193.223, 'eval_samples_per_second': 4.606, 'eval_steps_per_second': 0.145, 'epoch': 3.0}
+Training finished! Saved model to outputs/Llama-2-7b-hf.
+03/08/2024 06:34:02 - INFO - __main__ - 
+                    Examples.
+                    Ground Truth: concord returned to its place amidst the tents
+                    Prediction: sierpand the a printhsttheth999999999999999andnyant to the usual inst the oones andandandthethethethethethethethethethethethethethethethethessatheaaassssaathethethethethethethethethethethethethethethetheaathethethethethethethethethethethethethethetheandandandandthetheandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandand <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk>
+                    Ground Truth: from the respect paid her on all sides she seemed like a queen and from the adoration with which she was treated by two or three she appeared an object of worship the queen mother gave the french the most affectionate reception france was her native country and she had suffered too much unhappiness in england for england to have made her forget france
+                    Prediction: sierpandth the numberth%088999999995and the different which to by the these a felt quite a ven who a the greatoration she which she was constantly she these of three of seemed to id of love to effect and was her threeete king app splendidate welcome thatce had the friend land and the felt a her much fromappiness from consequenceland to thelish to be been her a herce wasandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandandand <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk>
+        
+        
+100%|██████████| 28/28 [03:06<00:00,  6.67s/it]
+Results after training: {'eval_loss': 4.629424571990967, 'eval_wer': '2696.67', 'eval_cer': '4311.21', 'eval_runtime': 193.2585, 'eval_samples_per_second': 4.605, 'eval_steps_per_second': 0.145, 'epoch': 3.0}
+Results after training: {'eval_loss': 4.629424571990967, 'eval_wer': '2696.67', 'eval_cer': '4311.21', 'eval_runtime': 193.3726, 'eval_samples_per_second': 4.603, 'eval_steps_per_second': 0.145, 'epoch': 3.0}
+Training finished! Saved model to outputs/Llama-2-7b-hf.
+Results after training: {'eval_loss': 4.629424571990967, 'eval_wer': '2696.67', 'eval_cer': '4311.21', 'eval_runtime': 193.4049, 'eval_samples_per_second': 4.602, 'eval_steps_per_second': 0.145, 'epoch': 3.0}
+Training finished! Saved model to outputs/Llama-2-7b-hf.
+Results after training: {'eval_loss': 4.629424571990967, 'eval_wer': '2696.67', 'eval_cer': '4311.21', 'eval_runtime': 193.4117, 'eval_samples_per_second': 4.602, 'eval_steps_per_second': 0.145, 'epoch': 3.0}
+Training finished! Saved model to outputs/Llama-2-7b-hf.
+Results after training: {'eval_loss': 4.629424571990967, 'eval_wer': '2696.67', 'eval_cer': '4311.21', 'eval_runtime': 193.5676, 'eval_samples_per_second': 4.598, 'eval_steps_per_second': 0.145, 'epoch': 3.0}
+Training finished! Saved model to outputs/Llama-2-7b-hf.
+[2024-03-08 06:34:05,637] [INFO] [launch.py:348:main] Process 2055359 exits successfully.
+[2024-03-08 06:34:06,638] [INFO] [launch.py:348:main] Process 2055361 exits successfully.
+[2024-03-08 06:34:06,639] [INFO] [launch.py:348:main] Process 2055363 exits successfully.
+[2024-03-08 06:34:07,640] [INFO] [launch.py:348:main] Process 2055360 exits successfully.
+[2024-03-08 06:34:07,640] [INFO] [launch.py:348:main] Process 2055357 exits successfully.
+[2024-03-08 06:34:07,640] [INFO] [launch.py:348:main] Process 2055358 exits successfully.
+[2024-03-08 06:34:08,642] [INFO] [launch.py:348:main] Process 2055362 exits successfully.
+[INFO|trainer.py:2881] 2024-03-08 06:34:11,648 >> Saving model checkpoint to outputs/Llama-2-7b-hf
+[INFO|configuration_utils.py:461] 2024-03-08 06:34:11,652 >> Configuration saved in outputs/Llama-2-7b-hf/config.json
+[INFO|configuration_utils.py:564] 2024-03-08 06:34:11,654 >> Configuration saved in outputs/Llama-2-7b-hf/generation_config.json
+[INFO|modeling_utils.py:2201] 2024-03-08 06:34:42,259 >> The model is bigger than the maximum size per checkpoint (5GB) and is going to be split in 6 checkpoint shards. You can find where each parameters has been saved in the index located at outputs/Llama-2-7b-hf/model.safetensors.index.json.
+[INFO|tokenization_utils_base.py:2428] 2024-03-08 06:34:42,262 >> tokenizer config file saved in outputs/Llama-2-7b-hf/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2437] 2024-03-08 06:34:42,264 >> Special tokens file saved in outputs/Llama-2-7b-hf/special_tokens_map.json
+Training finished! Saved model to outputs/Llama-2-7b-hf.
+[2024-03-08 06:34:46,681] [INFO] [launch.py:348:main] Process 2055356 exits successfully.

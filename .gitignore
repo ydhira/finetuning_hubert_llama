@@ -28,3 +28,6 @@ hubert_features
 librispeech-hubert-discrete-tokens
 outputs
 outputs2
+hubert-large-ll60k-librispeech-clean-100h-demo-dist
+hubert-large-ll60k-librispeech-single-gpu_test_output
+wandb/
