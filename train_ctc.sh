@@ -26,7 +26,6 @@ export CUDA_VISIBLE_DEVICE=0,1,2,3,4,5,6,7
 #         --push_to_hub \
 #         --do_eval \
 #         --do_train \
-#         --token="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" \
 #         --overwrite_output_dir
 
 

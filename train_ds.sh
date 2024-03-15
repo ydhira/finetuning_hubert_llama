@@ -25,5 +25,5 @@ deepspeed --num_gpus=8 train.py \
     --do_eval True \
     --eval_before_training False \
     --report_to none \
-    --deepspeed "configs/ds_config3.json" \
+    --deepspeed "configs/ds_config.json" \
     --overwrite_output_dir \
